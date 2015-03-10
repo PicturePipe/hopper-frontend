@@ -36,11 +36,11 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Generating Documentation
 
-Just run the following command:
+To generate the documentation in the `docs/` directory run:
 
 * `ember ember-cli-yuidoc`
 
-It will generate your documentation in your `docs/` directory. If you want to serve and update your documentation automaticaly, you also can run the following command:
+If you want to serve and update your documentation automatically, you also can run the following command:
 
 * `ember serve --docs`
 
