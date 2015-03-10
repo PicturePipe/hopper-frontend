@@ -1,7 +1,7 @@
 # Hopper-frontend
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Hopper-frontend is a JavaScript frontend for the hopper backend. It allows
+your users to easily create there own formulars.
 
 ## Prerequisites
 
