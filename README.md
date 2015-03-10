@@ -40,7 +40,7 @@ You can use `ember-cli-yuidoc` to generate the documentation in the `docs/` dire
 
 * `ember ember-cli-yuidoc`
 
-You can also automatically generate, update and serve them at[http://localhost:4200/docs/](http://localhost:4200/docs/):
+You can also automatically generate, update and serve them at [http://localhost:4200/docs/](http://localhost:4200/docs/):
 
 * `ember serve --docs`
 
