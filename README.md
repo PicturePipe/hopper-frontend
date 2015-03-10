@@ -34,6 +34,18 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember test`
 * `ember test --server`
 
+### Generating Documentation
+
+Just run the following command:
+
+* `ember ember-cli-yuidoc`
+
+It will generate your documentation in your `docs/` directory. If you want to serve and update your documentation automaticaly, you also can run the following command:
+
+* `ember serve --docs`
+
+...and access the page at [http://localhost:4200/docs/](http://localhost:4200/docs/).
+
 ### Building
 
 * `ember build` (development)
