@@ -1,6 +1,6 @@
 # Hopper-frontend
 
-Hopper-frontend is a JavaScript frontend for the hopper backend. It allows
+Hopper-frontend is a JavaScript frontend for the Hopper API. It allows
 your users to easily create there own formulars.
 
 ## Prerequisites
