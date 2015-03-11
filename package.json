@@ -1,7 +1,7 @@
 {
   "name": "hopper-frontend",
   "version": "0.1.0",
-  "description": "Formular builder for hopper, written in ember.js",
+  "description": "Formular builder for Hopper, written in Ember.js",
   "private": true,
   "directories": {
     "doc": "doc",
