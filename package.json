@@ -35,8 +35,10 @@
     "ember-export-application-global": "^1.0.2",
     "express": "^4.8.5",
     "glob": "^4.0.5",
-    "karma-qunit": "0.1.1",
+    "karma": "0.12.1",
     "karma-phantomjs-launcher": "0.1.2",
-    "karma": "0.12.1"
+    "karma-qunit": "0.1.1",
+    "karma-requirejs": "^0.2.2",
+    "requirejs": "^2.1.16"
   }
 }
