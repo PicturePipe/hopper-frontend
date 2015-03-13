@@ -17,6 +17,10 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+// Foundation
+app.import('bower_components/foundation/js/foundation.min.js');
+
+// FontAwesome
 app.import('bower_components/fontawesome/fonts/FontAwesome.otf', {destDir: 'assets/fontawesome/fonts'});
 app.import('bower_components/fontawesome/fonts/fontawesome-webfont.eot', {destDir: 'assets/fontawesome/fonts'});
 app.import('bower_components/fontawesome/fonts/fontawesome-webfont.svg', {destDir: 'assets/fontawesome/fonts'});
