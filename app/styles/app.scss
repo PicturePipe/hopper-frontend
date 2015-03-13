@@ -2,6 +2,10 @@
     height: 100%;
 }
 
+.clear-both {
+    clear: both;
+}
+
 body, html, div.ember-view {
     @extend .full-height;
 }
@@ -16,16 +20,34 @@ $fa-font-path: "fontawesome/fonts";
     margin-top: -3px;
     @extend .full-height;
 }
+
 .hopper-content {
     @extend .full-height;
     padding-left: 1em;
     padding-right: 1em;
+    .form-title {
+        float: left;
+    }
+    .form-meta-toggl {
+        float: left;
+        margin: 1.5em;
+    }
+    .form-control {
+        float: right;
+        margin: 1.5em;
+        .fa-question-circle {
+            font-size: 200%;
+        }
+    }
+    .form-content {
+        clear: both;
+    }
+
 }
 
 .hopper-sidenav {
     @extend .full-height;
     float: right;
-    margin-left: 1em;
     border-left: 2px solid #000000;
     .sidenav-control {
         width: 50px;
