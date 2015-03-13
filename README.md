@@ -1,5 +1,7 @@
 # Hopper-frontend
 
+[![Build Status](https://travis-ci.org/transcode-de/hopper-frontend.svg)](https://travis-ci.org/transcode-de/hopper-frontend)
+
 Hopper-frontend is a JavaScript frontend for the Hopper API. It allows
 your users to easily create there own formulars.
 
