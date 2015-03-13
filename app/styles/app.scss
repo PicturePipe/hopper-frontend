@@ -1,7 +1,49 @@
-$row-width: 100%;
-$total-columns: 12;
+.full-height {
+    height: 100%;
+}
+
+body, html, div.ember-view {
+    @extend .full-height;
+}
+
 $fa-font-path: "fontawesome/fonts";
 
 @import "bower_components/foundation/scss/normalize.scss";
 @import "bower_components/foundation/scss/foundation.scss";
 @import "bower_components/fontawesome/scss/font-awesome.scss";
+
+.hopper {
+    margin-top: -3px;
+    @extend .full-height;
+}
+.hopper-content {
+    @extend .full-height;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.hopper-sidenav {
+    @extend .full-height;
+    float: right;
+    margin-left: 1em;
+    border-left: 2px solid #000000;
+    .sidenav-control {
+        width: 50px;
+        @extend .full-height;
+        text-align: center;
+        font-size: 300%;
+        float: left;
+    }
+    .available-fields {
+        float: right;
+        @extend .full-height;
+        width: 0px;
+        border-left: 2px solid #000000;
+    }
+}
+
+.hopper-sidenav.open {
+    .available-fields {
+        width: 250px;
+    }
+}
