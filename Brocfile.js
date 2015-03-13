@@ -17,4 +17,11 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
+app.import('bower_components/fontawesome/fonts/FontAwesome.otf', {destDir: 'assets/fontawesome/fonts'});
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.eot', {destDir: 'assets/fontawesome/fonts'});
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.svg', {destDir: 'assets/fontawesome/fonts'});
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.ttf', {destDir: 'assets/fontawesome/fonts'});
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff', {destDir: 'assets/fontawesome/fonts'});
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff2', {destDir: 'assets/fontawesome/fonts'});
+
 module.exports = app.toTree();
