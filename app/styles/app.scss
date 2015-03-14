@@ -11,14 +11,23 @@ body, html, div.ember-view {
 }
 
 $fa-font-path: "fontawesome/fonts";
+$row-width: 100%;
 
 @import "bower_components/foundation/scss/normalize.scss";
 @import "bower_components/foundation/scss/foundation.scss";
 @import "bower_components/fontawesome/scss/font-awesome.scss";
 
-.hopper {
+#hopper {
     margin-top: -3px;
     @extend .full-height;
+}
+
+.hopper-col {
+    @extend .full-height;
+}
+
+.hopper-col-last {
+    padding-right: 0;
 }
 
 .hopper-content {
@@ -42,7 +51,10 @@ $fa-font-path: "fontawesome/fonts";
     .form-content {
         clear: both;
     }
+}
 
+.hopper-fields {
+    clear: both;
 }
 
 .hopper-sidenav {
