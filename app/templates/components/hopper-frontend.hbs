@@ -1,0 +1,42 @@
+<div id="hopper" class="row">
+
+    <div {{bind-attr class=":hopper-col :columns isSidenavOpen:medium-11:medium-15"}}>
+        <div class="hopper-content">
+            <div class="form-title">
+                <h1>My awesome Festival</h1>
+            </div>
+            <div class="form-meta-toggl">
+                <div class="switch round">
+                    <input id="exampleCheckboxSwitch" type="checkbox">
+                    <label for="exampleCheckboxSwitch"></label>
+                </div>
+            </div>
+            <div class="form-control">
+                <a href="#" class="button small success">
+                    <i class="fa fa-check"></i> Save
+                </a>
+                <a href="#" class="button small alert">
+                    <i class="fa fa-times"></i> Cancel
+                </a>
+                <a href="#">
+                    <i class="fa fa-question-circle"></i>
+                </a>
+            </div>
+            <div class="hopper-fields">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
+            </div>
+        </div>
+    </div>
+
+    <div {{bind-attr class=":hopper-col :columns :hopper-col-last isSidenavOpen:medium-4:medium-1"}}>
+        <div class="hopper-sidenav">
+            <div {{bind-attr class=':available-fields isSidenavOpen:open'}}>
+                <!-- Fields go here... -->
+            </div>
+            <div class="sidenav-control" {{action "toggleSidenavOpen" on="click"}}>
+                <i {{bind-attr class=":fa :hopper-col-last isSidenavOpen:fa-caret-right:fa-caret-left"}}>
+                </i>
+            </div>
+        </div>
+    </div>
+</div>
