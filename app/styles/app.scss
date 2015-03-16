@@ -8,6 +8,14 @@ $sidenav-with: 50px;
 $hopper-meta-height: 100px;
 $solid-black-border: 2px solid #000000;
 $hopper-light-gray: #E6E6E6;
+$hopper-light-green: #CBE8BA;
+// mixins
+
+@mixin border-radius-mixin($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
 
 // Imports
 @import "bower_components/foundation/scss/normalize.scss";
@@ -121,4 +129,35 @@ body, html, div.ember-view {
             background-color: $hopper-light-gray;
         }
     }
+}
+
+.field, .fieldset {
+    @include border-radius-mixin(10px);
+    border: $solid-black-border;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    label {
+        float: left;
+        padding-top: 0.3em;
+        padding-right: 1em;
+        font-weight: bold;
+        font-size: 100%;
+    }
+    input {
+        margin-bottom: 0;
+    }
+    span {
+        display: block;
+        overflow: hidden;
+    }
+}
+
+.field {
+    padding-top: 1em;
+}
+
+.immutable {
+    background-color: $hopper-light-green;
 }
