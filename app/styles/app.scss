@@ -12,6 +12,8 @@ body, html, div.ember-view {
 
 $fa-font-path: "fontawesome/fonts";
 $row-width: 100%;
+$total-columns: 16;
+
 
 @import "bower_components/foundation/scss/normalize.scss";
 @import "bower_components/foundation/scss/foundation.scss";
