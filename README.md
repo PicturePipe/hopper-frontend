@@ -1,5 +1,7 @@
 # Hopper-frontend
 
+[![Build Status](https://travis-ci.org/transcode-de/hopper-frontend.svg)](https://travis-ci.org/transcode-de/hopper-frontend)
+
 Hopper-frontend is a JavaScript frontend for the Hopper API. It allows
 your users to easily create there own formulars.
 
@@ -8,19 +10,24 @@ your users to easily create there own formulars.
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+* [nvm](https://github.com/creationix/nvm)
 
 ## Installation
 
+To install it, just run the following commands:
+
 * `git clone <repository-url>` this repository
 * change into the new directory
+* `nvm install`
+* `npm install -g ember-cli bower`
 * `npm install`
 * `bower install`
 
+Use `nvm deactivate` after you are done to restore your `PATH` variable. With `nvm use` you can set it again to run, test or develop the project.
+
 ## Running / Development
+
+Just type the following to run hopper-frontend:
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
@@ -29,10 +36,11 @@ You will need the following things properly installed on your computer.
 
 Make use of the many generators for code, try `ember help generate` for more details
 
-### Running Tests
+### Running Tests  / Coverage Report
 
-* `ember test`
-* `ember test --server`
+To run the test suite use the following command. This will also generate a coverage report:
+
+* `npm test`
 
 ### Generating Documentation
 
