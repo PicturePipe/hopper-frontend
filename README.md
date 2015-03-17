@@ -14,21 +14,20 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-To make sure you are using the right version of Node.js, we are providing a `.nvmrc`. Therefore, to install all dependencies from `hopper-frontend`, make sure you have `nvm` installed.
+To install it, just run the following commands:
 
 * `git clone <repository-url>` this repository
 * change into the new directory
 * `nvm install`
-* `npm install -g ember-cli`
-* `npm install -g bower`
+* `npm install -g ember-cli bower`
 * `npm install`
 * `bower install`
 
-After that, you just have to type `nvm use` everytime you want to run, test or develop this project. This will make sure, that you use the correct Node.js version.
+Use `nvm deactivate` after you are done to restore your `PATH` variable. With `nvm use` you can set it again to run, test or develop the project.
 
 ## Running / Development
 
-To run hopper-frontend, you have to do the following:
+Just type the following to run hopper-frontend:
 
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
@@ -39,13 +38,9 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Running Tests and generating coverage
 
-To run the testuise, you have to install `karma-cli`:
-
-* `npm install -g karma-cli`
-
 Now, to run the testsuite you now can use the following command. This will also generate the coverage:
 
-* `karma start`
+* `npm test`
 
 ### Generating Documentation
 
