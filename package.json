@@ -10,7 +10,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "karma start"
   },
   "repository": "",
   "engines": {
@@ -35,6 +35,13 @@
     "ember-data": "1.0.0-beta.15",
     "ember-export-application-global": "^1.0.2",
     "express": "^4.8.5",
-    "glob": "4.4.0"
+    "glob": "5.0.3",
+    "karma": "0.12.1",
+    "karma-cli": "0.0.4",
+    "karma-coverage": "^0.2.7",
+    "karma-phantomjs-launcher": "0.1.2",
+    "karma-qunit": "0.1.1",
+    "karma-requirejs": "^0.2.2",
+    "requirejs": "^2.1.16"
   }
 }
