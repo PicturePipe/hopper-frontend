@@ -36,9 +36,9 @@ Just type the following to run hopper-frontend:
 
 Make use of the many generators for code, try `ember help generate` for more details
 
-### Running Tests and generating coverage
+### Running Tests  / Coverage Report
 
-Now, to run the testsuite you now can use the following command. This will also generate the coverage:
+To run the test suite use the following command. This will also generate a coverage report:
 
 * `npm test`
 
