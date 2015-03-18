@@ -4,7 +4,7 @@ $row-width: 100%;
 $total-columns: 16;
 
 // variable definitions
-$sidenav-with: 50px;
+$element-drawer-width: 50px;
 $hopper-meta-height: 100px;
 $solid-black-border: 2px solid #000000;
 $hopper-light-gray: #E6E6E6;
@@ -97,15 +97,15 @@ body, html, div.ember-view {
     }
 }
 
-.hopper-sidenav {
+.hopper-element-drawer {
     @extend .full-height;
     float: right;
     width: 100%;
-    .sidenav-control {
+    .element-drawer-control {
         @extend .full-height;
         @extend .border-top-bottom;
         border-left: $solid-black-border;
-        width: $sidenav-with;
+        width: $element-drawer-width;
         text-align: center;
         font-size: 300%;
         float: right;
@@ -120,7 +120,7 @@ body, html, div.ember-view {
         overflow-y: auto;
     }
     .available-fields.open {
-        width: calc(100% - #{$sidenav-with});
+        width: calc(100% - #{$element-drawer-width});
     }
 }
 

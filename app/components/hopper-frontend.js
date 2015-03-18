@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    isSidenavOpen: false,
+    isElementDrawerOpen: false,
     actions: {
-        toggleIsSidenavOpen: function () {
-            this.set('isSidenavOpen', !this.get('isSidenavOpen'));
+        toggleIsElementDrawerOpen: function () {
+            this.set('isElementDrawerOpen', !this.get('isElementDrawerOpen'));
         }
     }
 });

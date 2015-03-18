@@ -8,21 +8,21 @@ moduleForComponent('hopper-frontend', {
   // needs: ['component:foo', 'helper:bar']
 });
 
-test('toggleIsSidenavOpen action', function(assert) {
+test('toggleIsElementDrawerOpen action', function(assert) {
   assert.expect(3);
 
   // create component instance
   var component = this.subject();
-  assert.equal(component.isSidenavOpen, false);
+  assert.equal(component.isElementDrawerOpen, false);
 
-  component.send('toggleIsSidenavOpen');
-  assert.equal(component.isSidenavOpen, true);
+  component.send('toggleIsElementDrawerOpen');
+  assert.equal(component.isElementDrawerOpen, true);
 
-  component.send('toggleIsSidenavOpen');
-  assert.equal(component.isSidenavOpen, false);
+  component.send('toggleIsElementDrawerOpen');
+  assert.equal(component.isElementDrawerOpen, false);
 });
 
-test('css change #hopper-sidenav after toggleIsSidenavOpen', function(assert) {
+test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', function(assert) {
   assert.expect(4);
 
   var component = this.subject();
@@ -31,18 +31,18 @@ test('css change #hopper-sidenav after toggleIsSidenavOpen', function(assert) {
   var $component = this.append();
 
   // assert default state
-  assert.ok($component.find('#hopper-sidenav').hasClass('medium-1'));
-  assert.ok(!$component.find('#hopper-sidenav').hasClass('medium-3'));
+  assert.ok($component.find('#hopper-element-drawer').hasClass('medium-1'));
+  assert.ok(!$component.find('#hopper-element-drawer').hasClass('medium-3'));
 
-  // click sidenav-control
-  $component.find('.sidenav-control').click();
+  // click element-drawer-control
+  $component.find('.element-drawer-control').click();
 
   // assert switched state
-  assert.ok(!$component.find('#hopper-sidenav').hasClass('medium-1'));
-  assert.ok($component.find('#hopper-sidenav').hasClass('medium-3'));
+  assert.ok(!$component.find('#hopper-element-drawer').hasClass('medium-1'));
+  assert.ok($component.find('#hopper-element-drawer').hasClass('medium-3'));
 });
 
-test('css change #hopper-first-col after toggleIsSidenavOpen', function(assert) {
+test('css change #hopper-first-col after toggleIsElementDrawerOpen', function(assert) {
   assert.expect(4);
 
   var component = this.subject();
@@ -54,15 +54,15 @@ test('css change #hopper-first-col after toggleIsSidenavOpen', function(assert) 
   assert.ok($component.find('#hopper-first-col').hasClass('medium-15'));
   assert.ok(!$component.find('#hopper-first-col').hasClass('medium-13'));
 
-  // click sidenav-control
-  $component.find('.sidenav-control').click();
+  // click element-drawer-control
+  $component.find('.element-drawer-control').click();
 
   // assert switched state
   assert.ok(!$component.find('#hopper-first-col').hasClass('medium-15'));
   assert.ok($component.find('#hopper-first-col').hasClass('medium-13'));
 });
 
-test('css change #toggl-sidenav-icon after toggleIsSidenavOpen', function(assert) {
+test('css change #toggl-element-drawer-icon after toggleIsElementDrawerOpen', function(assert) {
   assert.expect(4);
 
   var component = this.subject();
@@ -70,18 +70,18 @@ test('css change #toggl-sidenav-icon after toggleIsSidenavOpen', function(assert
   // append the component to the DOM
   var $component = this.append();
   // assert default state
-  assert.ok($component.find('#toggl-sidenav-icon').hasClass('fa-caret-left'));
-  assert.ok(!$component.find('#toggl-sidenav-icon').hasClass('fa-caret-right'));
+  assert.ok($component.find('#toggl-element-drawer-icon').hasClass('fa-caret-left'));
+  assert.ok(!$component.find('#toggl-element-drawer-icon').hasClass('fa-caret-right'));
 
-  // click sidenav-control
-  $component.find('.sidenav-control').click();
+  // click element-drawer-control
+  $component.find('.element-drawer-control').click();
 
   // assert switched state
-  assert.ok(!$component.find('#toggl-sidenav-icon').hasClass('fa-caret-left'));
-  assert.ok($component.find('#toggl-sidenav-icon').hasClass('fa-caret-right'));
+  assert.ok(!$component.find('#toggl-element-drawer-icon').hasClass('fa-caret-left'));
+  assert.ok($component.find('#toggl-element-drawer-icon').hasClass('fa-caret-right'));
 });
 
-test('css change .available-fields after toggleIsSidenavOpen', function(assert) {
+test('css change .available-fields after toggleIsElementDrawerOpen', function(assert) {
   assert.expect(2);
 
   var component = this.subject();
@@ -92,8 +92,8 @@ test('css change .available-fields after toggleIsSidenavOpen', function(assert) 
   // assert default state
   assert.ok(!$component.find('.available-fields').hasClass('open'));
 
-  // click sidenav-control
-  $component.find('.sidenav-control').click();
+  // click element-drawer-control
+  $component.find('.element-drawer-control').click();
 
   // assert switched state
   assert.ok($component.find('.available-fields').hasClass('open'));
