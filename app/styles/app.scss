@@ -171,3 +171,7 @@ body, html, div.ember-view {
 .immutable {
     background-color: $hopper-light-green;
 }
+
+.button.active {
+    background-color: #007095;
+}
