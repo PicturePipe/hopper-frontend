@@ -21,10 +21,10 @@ var app = new EmberApp();
 // Foundation
 app.import('bower_components/foundation/js/foundation.min.js');
 
-var extraAssets = pickFiles('bower_components/fontawesome/fonts', {
-    srcDir: '/',
+var fontawesomeAssets = pickFiles('bower_components/fontawesome', {
+    srcDir: '/fonts',
     files: ['FontAwesome.otf', 'fontawesome-webfont.*'],
     destDir: 'assets/fontawesome/fonts'
 });
 
-module.exports = app.toTree(extraAssets);
+module.exports = app.toTree(fontawesomeAssets);
