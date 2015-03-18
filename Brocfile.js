@@ -1,6 +1,7 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var pickFiles = require('broccoli-static-compiler');
 
 var app = new EmberApp();
 
@@ -20,12 +21,10 @@ var app = new EmberApp();
 // Foundation
 app.import('bower_components/foundation/js/foundation.min.js');
 
-// FontAwesome
-app.import('bower_components/fontawesome/fonts/FontAwesome.otf', {destDir: 'assets/fontawesome/fonts'});
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.eot', {destDir: 'assets/fontawesome/fonts'});
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.svg', {destDir: 'assets/fontawesome/fonts'});
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.ttf', {destDir: 'assets/fontawesome/fonts'});
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff', {destDir: 'assets/fontawesome/fonts'});
-app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff2', {destDir: 'assets/fontawesome/fonts'});
+var extraAssets = pickFiles('bower_components/fontawesome/fonts', {
+    srcDir: '/',
+    files: ['FontAwesome.otf', 'fontawesome-webfont.*'],
+    destDir: 'assets/fontawesome/fonts'
+});
 
-module.exports = app.toTree();
+module.exports = app.toTree(extraAssets);
