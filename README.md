@@ -30,7 +30,7 @@ Use `nvm deactivate` after you are done to restore your `PATH` variable. With `n
 Just type the following to run hopper-frontend:
 
 * `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
 
@@ -38,9 +38,15 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Running Tests  / Coverage Report
 
-To run the test suite use the following command. This will also generate a coverage report:
+To run the test suite use the following command.
 
 * `npm test`
+
+You also can view the tests in the browser of your choice. There you also can see the coverage:
+
+* `ember server`
+* visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* click the `Enable Coverage` checkbox.
 
 ### Generating Documentation
 
