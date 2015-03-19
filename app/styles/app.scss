@@ -1,0 +1,177 @@
+// variable overridings
+$fa-font-path: "fontawesome/fonts";
+$row-width: 100%;
+$total-columns: 16;
+
+// variable definitions
+$element-drawer-width: 50px;
+$hopper-meta-height: 100px;
+$solid-black-border: 2px solid #000000;
+$hopper-light-gray: #E6E6E6;
+$hopper-light-green: #CBE8BA;
+// mixins
+
+@mixin border-radius-mixin($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin transition-mixin($property, $time, $function, $delay) {
+    -webkit-transition: $property $time $function;
+    -webkit-transition-delay: $delay;
+    -moz-transition: $property $time $function;
+    -moz-transition-delay: $delay;
+    -o-transition: $property $time $function;
+    -o-transition-delay: $delay;
+    transition: $property $time $function;
+    transition-delay: $delay;
+}
+
+// Imports
+@import "bower_components/foundation/scss/normalize.scss";
+@import "bower_components/foundation/scss/foundation.scss";
+@import "bower_components/fontawesome/scss/font-awesome.scss";
+
+// Basic classes
+.full-height {
+    height: 100%;
+}
+
+.clear-both {
+    clear: both;
+}
+
+body, html, div.ember-view {
+    @extend .full-height;
+}
+
+.border-top-bottom {
+    border-top: $solid-black-border;
+    border-bottom: $solid-black-border;
+}
+
+// Changes & custom css
+.columns {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#hopper {
+    @extend .full-height;
+}
+
+.hopper-col {
+    @include transition-mixin(width, 0.2s, ease, 0s);
+    @extend .full-height;
+}
+
+.hopper-col-last {
+    padding-right: 0;
+}
+
+.hopper-content {
+    @extend .full-height;
+    padding-left: 1em;
+    padding-right: 1em;
+    .hopper-meta {
+        height: $hopper-meta-height;
+        border-bottom: 1px solid $hopper-light-gray;
+        .form-title {
+            float: left;
+        }
+        .form-meta-toggl {
+            float: left;
+            margin: 1.5em;
+        }
+        .form-control {
+            float: right;
+            margin: 1.5em;
+        }
+    }
+    .hopper-fields {
+        margin-top: 1.5em;
+        clear: both;
+        overflow-y: auto;
+        height: calc(100% - 1.5em - #{$hopper-meta-height})
+    }
+}
+
+.hopper-element-drawer {
+    @extend .full-height;
+    float: right;
+    width: 100%;
+    .element-drawer-control {
+        @extend .full-height;
+        @extend .border-top-bottom;
+        border-left: $solid-black-border;
+        width: $element-drawer-width;
+        text-align: center;
+        font-size: 300%;
+        float: right;
+        cursor: pointer;
+    }
+    .available-fields {
+        @extend .full-height;
+        @include transition-mixin(width, 0.2s, ease, 0s);
+        float: right;
+        width: 0px;
+        border-left: $solid-black-border;
+        overflow-y: auto;
+    }
+    .available-fields.open {
+        width: calc(100% - #{$element-drawer-width});
+    }
+}
+
+.available-fields {
+    @extend .border-top-bottom;
+    ul {
+        list-style-type: none;
+        margin-left: 0;
+        li {
+            font-size: 135%;
+            border-bottom: $solid-black-border;
+            padding: 0.5em 0 0.5em 1em;
+            cursor: move;
+        }
+        li:hover {
+            background-color: $hopper-light-gray;
+        }
+    }
+}
+
+.field, .fieldset {
+    @include border-radius-mixin(10px);
+    border: $solid-black-border;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    label {
+        float: left;
+        padding-top: 0.3em;
+        padding-right: 1em;
+        font-weight: bold;
+        font-size: 100%;
+    }
+    input {
+        margin-bottom: 0;
+    }
+    span {
+        display: block;
+        overflow: hidden;
+    }
+}
+
+.field {
+    padding-top: 1em;
+}
+
+.immutable {
+    background-color: $hopper-light-green;
+}
+
+.button.active {
+    background-color: #007095;
+}

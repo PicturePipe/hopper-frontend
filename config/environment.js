@@ -16,7 +16,13 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+  };
+
+  ENV.sassOptions = {
+    includePaths: [
+      'bower_components/foundation/scss'
+    ]
   };
 
   if (environment === 'development') {
