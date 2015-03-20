@@ -79,6 +79,13 @@ body, html, div.ember-view {
         border-bottom: 1px solid $hopper-light-gray;
         .form-title {
             float: left;
+            input, h1 {
+                margin-top: 0.5em;
+                font-size: 230%;
+            }
+            input {
+                height: 60px;
+            }
         }
         .form-meta-toggl {
             float: left;
