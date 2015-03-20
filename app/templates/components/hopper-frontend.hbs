@@ -4,7 +4,14 @@
         <div class="hopper-content">
             <div class="hopper-meta">
                 <div class="form-title">
-                    <h1>My awesome Festival</h1>
+                    {{#if isTitleEditing}}
+                        {{edit-title-input
+                            focus-out="acceptTitleChange"
+                            insert-newline="acceptTitleChange"
+                            value=formTitle}}
+                    {{else}}
+                        <h1 {{action "editTitle" on="doubleClick"}}>{{ formTitle }}</h1>
+                    {{/if}}
                 </div>
                 <div class="form-meta-toggl">
                     <ul class="button-group">
