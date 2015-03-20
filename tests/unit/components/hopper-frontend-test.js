@@ -22,6 +22,29 @@ test('toggleIsElementDrawerOpen action', function(assert) {
   assert.equal(component.isElementDrawerOpen, false);
 });
 
+test('editTitle action', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject();
+  assert.equal(component.isTitleEditing, false);
+
+  component.send('editTitle');
+  assert.equal(component.isTitleEditing, true);
+
+});
+
+test('acceptTitleChange action', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject();
+  component.set('isTitleEditing', true);
+  assert.equal(component.isTitleEditing, true);
+
+  component.send('acceptTitleChange');
+  assert.equal(component.isTitleEditing, false);
+
+});
+
 test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', function(assert) {
   assert.expect(4);
 
