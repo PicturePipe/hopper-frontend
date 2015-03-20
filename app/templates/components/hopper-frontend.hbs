@@ -8,8 +8,16 @@
                 </div>
                 <div class="form-meta-toggl">
                     <ul class="button-group">
-                        <li><a href="#" class="small button active">Fields</a></li>
-                        <li><a href="#" class="small button">Form</a></li>
+                        <li>
+                            {{#link-to "fields" activeClass="active" class="small button"}}
+                                Fields
+                            {{/link-to}}
+                        </li>
+                        <li>
+                            {{#link-to "form" activeClass="active" class="small button"}}
+                                Form
+                            {{/link-to}}
+                        </li>
                     </ul>
                 </div>
                 <div class="form-control">
