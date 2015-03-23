@@ -1,22 +1,8 @@
 <div> <!-- this will be replaced with a component for choosen fields -->
-    <div class="fieldset">
-        <h2>Director</h2>
-        <div class="field immutable">
-            <label>A kindof long First Name*:</label>
+    {{#each element in model.formElements}}
+        <div {{bind-attr class=":field element.immutable:immutable" }}>
+            <label>{{ element.label }}{{#if element.required}}*{{/if}}:</label>
             <span><input type="text" name="first_name" disabled></span>
         </div>
-        <div class="field immutable">
-        <label>Last Name*:</label>
-            <span><input type="text" name="first_name" disabled></span>
-        </div>
-    </div>
-    <div class="field">
-        <label>Genres*:</label>
-        <span>
-            <input type="checkbox" name="genres" value="action" disabled> Action <br/>
-            <input type="checkbox" name="genres" value="documentatry" disabled> Documentary <br/>
-            <input type="checkbox" name="genres" value="drama" disabled> Drama <br/>
-            <input type="checkbox" name="genres" value="sci-fi" disabled> Sci-Fi <br/>
-        </span>
-    </div>
+    {{/each}}
 </div>
