@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     isElementDrawerOpen: false,
-    isTitleEditing: false,
+    isTitleBeingEdited: false,
     formTitle: 'My awesome Festival',
 
     actions: {
@@ -10,10 +10,10 @@ export default Ember.Component.extend({
             this.set('isElementDrawerOpen', !this.get('isElementDrawerOpen'));
         },
         editTitle: function () {
-            this.set('isTitleEditing', true);
+            this.set('isTitleBeingEdited', true);
         },
         acceptTitleChange: function () {
-            this.set('isTitleEditing', false);
+            this.set('isTitleBeingEdited', false);
         }
     }
 });
