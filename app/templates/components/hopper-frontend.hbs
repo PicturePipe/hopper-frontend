@@ -8,9 +8,9 @@
                         {{edit-title-input
                             focus-out="acceptTitleChange"
                             insert-newline="acceptTitleChange"
-                            value=formTitle}}
+                            value=form.title}}
                     {{else}}
-                        <h1 {{action "editTitle" on="doubleClick"}}>{{ formTitle }}</h1>
+                        <h1 {{action "editTitle" on="doubleClick"}}>{{ form.title }}</h1>
                     {{/if}}
                 </div>
                 <div class="form-meta-toggl">

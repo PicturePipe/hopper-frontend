@@ -3,7 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     isElementDrawerOpen: false,
     isTitleBeingEdited: false,
-    formTitle: 'My awesome Festival',
+
+    didInsertElement: function() {
+        var store = this.get('targetObject.store');
+        this.set('form', store.find('form', 1 ));
+    },
 
     actions: {
         toggleIsElementDrawerOpen: function () {
