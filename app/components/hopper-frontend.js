@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
     actions: {
         toggleIsElementDrawerOpen: function () {
-            this.set('isElementDrawerOpen', !this.get('isElementDrawerOpen'));
+            this.toggleProperty('isElementDrawerOpen');
         },
         editTitle: function () {
             this.set('isTitleBeingEdited', true);
