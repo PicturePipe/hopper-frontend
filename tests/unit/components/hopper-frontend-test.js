@@ -27,10 +27,10 @@ test('editTitle action', function(assert) {
   assert.expect(2);
 
   var component = this.subject();
-  assert.equal(component.isTitleEditing, false);
+  assert.equal(component.isTitleBeingEdited, false);
 
   component.send('editTitle');
-  assert.equal(component.isTitleEditing, true);
+  assert.equal(component.isTitleBeingEdited, true);
 
 });
 
@@ -38,11 +38,11 @@ test('acceptTitleChange action', function(assert) {
   assert.expect(2);
 
   var component = this.subject();
-  component.set('isTitleEditing', true);
-  assert.equal(component.isTitleEditing, true);
+  component.set('isTitleBeingEdited', true);
+  assert.equal(component.isTitleBeingEdited, true);
 
   component.send('acceptTitleChange');
-  assert.equal(component.isTitleEditing, false);
+  assert.equal(component.isTitleBeingEdited, false);
 
 });
 
