@@ -15,10 +15,7 @@ moduleForComponent('hopper-frontend', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
   needs: [
-    'adapter:application',
     'component:edit-title-input',
-    'model:form',
-    'model:formElement',
   ]
 });
 
