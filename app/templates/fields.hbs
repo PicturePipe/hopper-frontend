@@ -1,8 +1,5 @@
 <div> <!-- this will be replaced with a component for choosen fields -->
     {{#each element in model.formElements}}
-        <div {{bind-attr class=":field element.immutable:immutable" }}>
-            <label>{{ element.label }}{{#if element.required}}*{{/if}}:</label>
-            <span><input type="text" name="first_name" disabled></span>
-        </div>
+        {{ form-element formElement=element }}
     {{/each}}
 </div>
