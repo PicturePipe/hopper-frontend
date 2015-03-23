@@ -5,7 +5,7 @@ import {
 
 moduleForModel('form', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:formElement']
 });
 
 test('it exists', function(assert) {
