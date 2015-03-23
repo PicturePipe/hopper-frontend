@@ -8,8 +8,16 @@
                 </div>
                 <div class="form-meta-toggl">
                     <ul class="button-group">
-                        <li><a href="#" class="small button active">Fields</a></li>
-                        <li><a href="#" class="small button">Form</a></li>
+                        <li>
+                            {{#link-to "fields" activeClass="active" class="small button"}}
+                                Fields
+                            {{/link-to}}
+                        </li>
+                        <li>
+                            {{#link-to "form" activeClass="active" class="small button"}}
+                                Form
+                            {{/link-to}}
+                        </li>
                     </ul>
                 </div>
                 <div class="form-control">
@@ -24,29 +32,8 @@
                     </a>
                 </div>
             </div>
-            <div class="hopper-fields">
-                <div> <!-- this will be replaced with a component for choosen fields -->
-                    <div class="fieldset">
-                        <h2>Director</h2>
-                        <div class="field immutable">
-                            <label>A kindof long First Name*:</label>
-                            <span><input type="text" name="first_name" disabled></span>
-                        </div>
-                        <div class="field immutable">
-                            <label>Last Name*:</label>
-                            <span><input type="text" name="first_name" disabled></span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label>Genres*:</label>
-                        <span>
-                            <input type="checkbox" name="genres" value="action" disabled> Action <br/>
-                            <input type="checkbox" name="genres" value="documentatry" disabled> Documentary <br/>
-                            <input type="checkbox" name="genres" value="drama" disabled> Drama <br/>
-                            <input type="checkbox" name="genres" value="sci-fi" disabled> Sci-Fi <br/>
-                        </span>
-                    </div>
-                </div>
+            <div class="hopper-outlet">
+                {{yield}}
             </div>
         </div>
     </div>

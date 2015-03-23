@@ -89,7 +89,7 @@ body, html, div.ember-view {
             margin: 1.5em;
         }
     }
-    .hopper-fields {
+    .hopper-outlet {
         margin-top: 1.5em;
         clear: both;
         overflow-y: auto;
@@ -142,21 +142,34 @@ body, html, div.ember-view {
 }
 
 .field, .fieldset {
-    @include border-radius-mixin(10px);
-    border: $solid-black-border;
     margin-bottom: 1em;
     padding-left: 1em;
     padding-right: 1em;
     padding-bottom: 1em;
+    input {
+        margin-bottom: 0;
+    }
+}
+
+.meta-form {
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 2em;
+    .columns {
+        padding-left: 1em;
+    }
+}
+
+.field, .fieldset, .meta-form {
+    @include border-radius-mixin(10px);
+    border: $solid-black-border;
     label {
         float: left;
         padding-top: 0.3em;
         padding-right: 1em;
         font-weight: bold;
         font-size: 100%;
-    }
-    input {
-        margin-bottom: 0;
     }
     span {
         display: block;
@@ -175,3 +188,4 @@ body, html, div.ember-view {
 .button.active {
     background-color: #007095;
 }
+
