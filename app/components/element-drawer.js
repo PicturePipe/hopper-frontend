@@ -16,5 +16,12 @@ export default Ember.Component.extend({
         'Urlfield',
         'Passwordfield',
         'Hiddenfield',
-    ]
+    ],
+
+    actions: {
+        addField: function(field) {
+            this.sendAction('addField', field);
+        }
+    }
+
 });
