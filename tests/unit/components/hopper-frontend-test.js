@@ -16,6 +16,7 @@ moduleForComponent('hopper-frontend', {
   // needs: ['component:foo', 'helper:bar']
   needs: [
     'component:edit-title-input',
+    'component:element-drawer'
   ]
 });
 
