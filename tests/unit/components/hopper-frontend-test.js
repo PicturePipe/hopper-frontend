@@ -6,8 +6,17 @@ import {
 var targetObjectFake = {
   store: {
     find: function () {
-      return {};
-    }
+      return {
+        get: function() {
+          return this;
+        },
+          addObject: function() {
+            this.length = 2;
+          },
+          length: 1,
+        };
+      },
+    createRecord: function () {}
   }
 };
 
@@ -55,6 +64,18 @@ test('acceptTitleChange action', function(assert) {
   component.send('acceptTitleChange');
   assert.equal(component.isTitleBeingEdited, false);
 
+});
+
+test('addField action', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject();
+  component.set('targetObject', targetObjectFake);
+  this.render();
+  assert.equal(component.get('form').get('formElements').length, 1);
+
+  component.send('addField', 'TestField');
+  assert.equal(component.get('form').get('formElements').length, 2);
 });
 
 test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', function(assert) {
