@@ -5,8 +5,8 @@ export default Ember.Component.extend({
     isTitleBeingEdited: false,
 
     didInsertElement: function() {
-        var store = this.get('targetObject.store');
-        this.set('form', store.find('form', 1 ));
+        this.set('store', this.get('targetObject.store'));
+        this.set('form', this.store.find('form', 1 ));
     },
 
     actions: {
@@ -18,6 +18,10 @@ export default Ember.Component.extend({
         },
         acceptTitleChange: function () {
             this.set('isTitleBeingEdited', false);
+        },
+        addField: function(field) {
+            var newElement = this.store.createRecord('formElement', {fieldType: field});
+            this.get('form').get('formElements').addObject(newElement);
         }
     }
 });
