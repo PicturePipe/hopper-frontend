@@ -20,7 +20,7 @@ export default Ember.Component.extend({
             this.set('isTitleBeingEdited', false);
         },
         addField: function(field) {
-            var newElement = this.store.createRecord('formElement', {label: '', fieldType: field});
+            var newElement = this.store.createRecord('formElement', {label: '', elementType: field});
             this.get('form').get('formElements').addObject(newElement);
         }
     }

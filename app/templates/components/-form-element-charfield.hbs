@@ -1,0 +1,12 @@
+{{#if isEditing}}
+<div class="field">
+    {{input value=formElement.label}}
+    <a {{ action "togglIsEditing" on="click"}}>Save</a>
+</div>
+{{else}}
+<div {{bind-attr class=":field formElement.immutable:immutable" }}
+        {{action "togglIsEditing" on="doubleClick"}}>
+    <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
+    <span><input type="text" name="first_name" disabled></span>
+</div>
+{{/if}}

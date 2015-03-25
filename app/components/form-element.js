@@ -7,6 +7,17 @@ export default Ember.Component.extend({
       return this.get('_isEditing');
   }.property('_isEditing'),
 
+  formElementTemplate: function() {
+    // Set the default templateName to 'charfield', bacause during loading
+    // time, the formElement is not accessible and all of its attributes
+    // are 'undefined'.
+    var templateName = 'charfield';
+    if (typeof(this.get('formElement.elementType')) !== 'undefined') {
+      templateName = this.get('formElement.elementType').toLowerCase();
+    }
+    return 'components/-form-element-' + templateName;
+  }.property('formElement.elementType'),
+
   didInsertElement: function() {
     // While inserting a new formElement, it's label will be "" and
     // we want to edit it. A computet property, looking for _isEditing
