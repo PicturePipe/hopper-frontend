@@ -24,3 +24,16 @@ test('it renders', function(assert) {
   this.render();
   assert.equal(component._state, 'inDOM');
 });
+
+test('togglIsEditing action', function(assert) {
+  assert.expect(3);
+
+  var component = this.subject();
+  assert.equal(component._isEditing, false);
+
+  component.send('togglIsEditing');
+  assert.equal(component._isEditing, true);
+
+  component.send('togglIsEditing');
+  assert.equal(component._isEditing, false);
+});
