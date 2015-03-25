@@ -1,3 +1,4 @@
+import resolver from '../../helpers/resolver';
 import {
   moduleForComponent,
   test
@@ -6,6 +7,10 @@ import {
 moduleForComponent('form-element', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
+  setup: function() {
+    this.container.register('template:components/-form-element-charfield',
+    resolver.resolve('template:components/-form-element-charfield'));
+  }
 });
 
 test('it renders', function(assert) {
