@@ -48,7 +48,7 @@
     <div id="hopper-element-drawer" {{bind-attr class=":hopper-col :columns :hopper-col-last isElementDrawerOpen:medium-3:medium-1"}}>
         <div class="hopper-element-drawer">
             <div {{bind-attr class=':available-fields isElementDrawerOpen:open'}}>
-                {{ element-drawer addField='addField'}}
+                {{ element-drawer addFormElement='addFormElement'}}
             </div>
             <div class="element-drawer-control" {{action "toggleIsElementDrawerOpen" on="click"}}>
                 <i id="toggl-element-drawer-icon" {{bind-attr class=":fa :hopper-col-last isElementDrawerOpen:fa-caret-right:fa-caret-left"}}>

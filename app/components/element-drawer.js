@@ -19,8 +19,8 @@ export default Ember.Component.extend({
     ],
 
     actions: {
-        addField: function(field) {
-            this.sendAction('addField', field);
+        addFormElement: function(field) {
+            this.sendAction('addFormElement', field);
         }
     }
 

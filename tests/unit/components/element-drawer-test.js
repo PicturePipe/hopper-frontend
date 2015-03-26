@@ -20,17 +20,17 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-test('addField action', function(assert) {
-  // make sure, the component bubbles up the addField action to the next
+test('addFormElement action', function(assert) {
+  // make sure, the component bubbles up the addFormElement action to the next
   // component
   assert.expect(2);
   var fieldname = 'Fieldname';
   var sendActionStub = function(actionName, args) {
-    assert.equal(actionName, 'addField');
+    assert.equal(actionName, 'addFormElement');
     assert.equal(args, fieldname);
   };
 
   var component = this.subject();
   component.sendAction = sendActionStub;
-  component.send('addField', fieldname);
+  component.send('addFormElement', fieldname);
 });

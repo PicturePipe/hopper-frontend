@@ -66,7 +66,7 @@ test('acceptTitleChange action', function(assert) {
 
 });
 
-test('addField action', function(assert) {
+test('addFormElement action', function(assert) {
   assert.expect(2);
 
   var component = this.subject();
@@ -74,7 +74,7 @@ test('addField action', function(assert) {
   this.render();
   assert.equal(component.get('form').get('formElements').length, 1);
 
-  component.send('addField', 'TestField');
+  component.send('addFormElement', 'TestField');
   assert.equal(component.get('form').get('formElements').length, 2);
 });
 

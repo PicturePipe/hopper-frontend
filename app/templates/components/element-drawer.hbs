@@ -1,6 +1,6 @@
 <ul>
     {{#each field in fields}}
-    <li {{action "addField" field on="click"}}>
+    <li {{action "addFormElement" field on="click"}}>
         <i class="fa fa-angle-double-left"></i> {{ field }}
     </li>
     {{/each}}
