@@ -29,11 +29,11 @@ test('togglIsEditing action', function(assert) {
   assert.expect(3);
 
   var component = this.subject();
-  assert.equal(component._isEditing, false);
+  assert.equal(component.isEditing, false);
 
   component.send('togglIsEditing');
-  assert.equal(component._isEditing, true);
+  assert.equal(component.isEditing, true);
 
   component.send('togglIsEditing');
-  assert.equal(component._isEditing, false);
+  assert.equal(component.isEditing, false);
 });
