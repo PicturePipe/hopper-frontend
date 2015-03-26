@@ -24,6 +24,12 @@ export default Ember.Component.extend({
     }
   },
 
+  valuesAsList: function() {
+    if (typeof(this.get('formElement.values')) !== 'undefined') {
+      return this.get('formElement.values').split('\n');
+    }
+  }.property('formElement.values'),
+
   actions: {
     togglIsEditing: function() {
         this.toggleProperty('isEditing');
