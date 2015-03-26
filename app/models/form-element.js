@@ -10,6 +10,14 @@ var FormElement = DS.Model.extend({
     immutable: DS.attr('bool'),
     required: DS.attr('required'),
     elementType: DS.attr('string'),
+    weight: DS.attr('integer'),
+    formElements: DS.hasMany('formElement'),
+    placeholder: DS.attr('string'),
+    description: DS.attr('string'),
+    values: DS.attr('string'),
+    maxlength: DS.attr('integer'),
+    default: DS.attr('string'),
+    checked: DS.attr('bool'),
 
     name: function() {
         var name = '';
