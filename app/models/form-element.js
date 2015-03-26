@@ -1,9 +1,5 @@
 import DS from 'ember-data';
 
-function convertToSlug(text) {
-    return text.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
-}
-
 
 var FormElement = DS.Model.extend({
     label: DS.attr('string'),
@@ -22,7 +18,7 @@ var FormElement = DS.Model.extend({
     name: function() {
         var name = '';
         if (typeof(this.get('label')) !== 'undefined') {
-            name = convertToSlug(this.get('label'));
+            name = this.get('label').toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
         }
         return name;
     }.property('label')
