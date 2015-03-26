@@ -3,10 +3,30 @@ import {
   test
 } from 'ember-qunit';
 
+var targetObjectFake = {
+  store: {
+    find: function () {
+      return {
+        get: function() {
+          return this;
+        },
+          addObject: function() {
+            this.length = 2;
+          },
+          length: 1,
+        };
+      },
+    createRecord: function () {}
+  }
+};
+
 moduleForComponent('hopper-frontend', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
-  needs: ['component:edit-title-input']
+  needs: [
+    'component:edit-title-input',
+    'component:element-drawer'
+  ]
 });
 
 test('toggleIsElementDrawerOpen action', function(assert) {
@@ -46,13 +66,26 @@ test('acceptTitleChange action', function(assert) {
 
 });
 
+test('addFormElement action', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject();
+  component.set('targetObject', targetObjectFake);
+  this.render();
+  assert.equal(component.get('form').get('formElements').length, 1);
+
+  component.send('addFormElement', 'TestField');
+  assert.equal(component.get('form').get('formElements').length, 2);
+});
+
 test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', function(assert) {
   assert.expect(4);
 
   var component = this.subject();
+  component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.append();
+  var $component = this.render();
 
   // assert default state
   assert.ok($component.find('#hopper-element-drawer').hasClass('medium-1'));
@@ -70,9 +103,10 @@ test('css change #hopper-first-col after toggleIsElementDrawerOpen', function(as
   assert.expect(4);
 
   var component = this.subject();
+  component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.append();
+  var $component = this.render();
 
   // assert default state
   assert.ok($component.find('#hopper-first-col').hasClass('medium-15'));
@@ -90,9 +124,10 @@ test('css change #toggl-element-drawer-icon after toggleIsElementDrawerOpen', fu
   assert.expect(4);
 
   var component = this.subject();
+  component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.append();
+  var $component = this.render();
   // assert default state
   assert.ok($component.find('#toggl-element-drawer-icon').hasClass('fa-caret-left'));
   assert.ok(!$component.find('#toggl-element-drawer-icon').hasClass('fa-caret-right'));
@@ -109,9 +144,10 @@ test('css change .available-fields after toggleIsElementDrawerOpen', function(as
   assert.expect(2);
 
   var component = this.subject();
+  component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.append();
+  var $component = this.render();
 
   // assert default state
   assert.ok(!$component.find('.available-fields').hasClass('open'));
@@ -127,7 +163,9 @@ test('add and remove input', function(assert) {
   assert.expect(4);
 
   var component = this.subject();
-  var $component = this.append();
+  component.set('targetObject', targetObjectFake);
+
+  var $component = this.render();
 
   assert.ok($component.find('.form-title > h1').length);
   assert.ok(!$component.find('.form-title > input').length);
@@ -143,6 +181,8 @@ test('it renders', function(assert) {
 
   // creates the component instance
   var component = this.subject();
+  component.set('targetObject', targetObjectFake);
+
   assert.equal(component._state, 'preRender');
 
   // renders the component to the page
