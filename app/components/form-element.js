@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   }.property('_isEditing'),
 
   formElementTemplate: function() {
-    // Set the default templateName to 'charfield', bacause during loading
+    // Set the default templateName to 'charfield', because during loading
     // time, the formElement is not accessible and all of its attributes
     // are 'undefined'.
     var templateName = 'charfield';
@@ -20,7 +20,7 @@ export default Ember.Component.extend({
 
   didInsertElement: function() {
     // While inserting a new formElement, it's label will be "" and
-    // we want to edit it. A computet property, looking for _isEditing
+    // we want to edit it. A computed property, looking for _isEditing
     // and formElement.label would not work, because during render
     // time of the page the formElement.label would be undefined.
     if (this.get('formElement.label') === "") {
