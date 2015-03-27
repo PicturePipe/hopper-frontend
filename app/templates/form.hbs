@@ -4,26 +4,23 @@
         <div class="columns medium-5 form-method">
             <label>Form method:</label>
             <span>
-                <select>
-                    <option value="POST">POST</option>
-                    <option value="GET">GET</option>
-                </select>
+                {{view "select" content=model.possibleMethods }}
             </span>
         </div>
         <div class="columns medium-11">
-            <input placeholder="Form action" type="text">
+            {{input placeholder="Form action" value=model.action}}
         </div>
     </div>
 
     <div class="row">
         <div class="columns medium-5">
-            <input placeholder="Form enctype" type="text">
+            {{input placeholder="Form enctype" value=model.enctype}}
         </div>
         <div class="columns medium-6">
-            <input placeholder="Form classes" type="text">
+            {{input placeholder="Form classes" value=model.formClasses}}
         </div>
         <div class="columns medium-5">
-            <input placeholder="Field class" type="text">
+            {{input placeholder="Field classes" value=model.fieldClasses}}
         </div>
     </div>
 </div>
