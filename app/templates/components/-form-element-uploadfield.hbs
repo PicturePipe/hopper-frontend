@@ -1,0 +1,18 @@
+{{#if isEditing}}
+<div class="field">
+    <div class="row">
+        <label>Label:</label> <span>{{input value=formElement.label}}</span>
+    </div>
+    <div class="row save-row">
+        <a {{ action "togglIsEditing" on="click"}}>
+            <i class="fa fa-check-circle"></i>
+        </a>
+    </div>
+</div>
+{{else}}
+<div {{bind-attr class=":field formElement.immutable:immutable" }}
+        {{action "togglIsEditing" on="doubleClick"}}>
+    <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
+    <span><input type="file" {{bind-attr name=formElement.name }} disabled></span>
+</div>
+{{/if}}
