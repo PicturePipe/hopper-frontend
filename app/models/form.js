@@ -7,7 +7,7 @@ var Form = DS.Model.extend({
 
 Form.reopenClass({
     FIXTURES: [
-        { id: "1", title: 'My awesome Movie', formElements: [1, 2]}
+        { id: "1", title: 'My awesome Movie', formElements: [1]}
     ]
 });
 
