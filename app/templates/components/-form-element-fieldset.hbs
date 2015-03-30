@@ -1,0 +1,24 @@
+{{#if isEditing}}
+<div class="field edit">
+    <div class="row">
+        <label>Title:</label> <span>{{input value=formElement.label }}</span>
+    </div>
+    <div class="row">
+        <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
+    </div>
+    <div class="row save-row">
+        <a {{ action "togglIsEditing" on="click"}}>
+            <i class="fa fa-check-circle"></i>
+        </a>
+    </div>
+</div>
+{{else}}
+<div {{bind-attr class=":field formElement.immutable:immutable" }}>
+    <h2 {{action "togglIsEditing" on="doubleClick"}}>{{ formElement.label }}</h2>
+    <div>
+        {{#each element in formElement.formElements}}
+            {{ form-element formElement=element }}
+        {{/each}}
+    </div>
+</div>
+{{/if}}
