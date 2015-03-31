@@ -7,7 +7,7 @@ var FormElement = DS.Model.extend({
     required: DS.attr('required'),
     elementType: DS.attr('string'),
     weight: DS.attr('integer'),
-    formElements: DS.hasMany('formElement'),
+    formElements: DS.hasMany('formElement', { async: true }),
     placeholder: DS.attr('string'),
     description: DS.attr('string'),
     values: DS.attr('string'),
@@ -26,8 +26,9 @@ var FormElement = DS.Model.extend({
 
 FormElement.reopenClass({
     FIXTURES: [
-        { id: "1", label: 'First Name', required: false, immutable: true, elementType: 'Charfield'},
-        { id: "2", label: 'Last Name', required: true, immutable: false, elementType: 'Charfield'},
+        { id: "1", label: 'Director', immutable: true, elementType: 'fieldset', formElements: [2, 3]},
+        { id: "2", label: 'First Name', required: false, immutable: true, elementType: 'Charfield'},
+        { id: "3", label: 'Last Name', required: true, immutable: false, elementType: 'Charfield'},
     ]
 });
 
