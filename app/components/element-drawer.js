@@ -7,6 +7,7 @@ export default Ember.Component.extend({
         'Textfield',
         'Select',
         'Multiselect',
+        'Checkboxfield',
         'Datefield',
         'Datetimefield',
         'Uploadfield',
