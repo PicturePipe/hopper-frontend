@@ -32,7 +32,8 @@
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
     <span>
-        {{input
+        {{textarea
+            rows=5
             disabled=true
             name=formElement.name
             placeholder=formElement.placeholder
