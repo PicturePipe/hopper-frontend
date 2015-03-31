@@ -4,16 +4,7 @@
         <label>Label:</label> <span>{{input value=formElement.label }}</span>
     </div>
     <div class="row">
-        <label>Placeholder:</label> <span>{{input value=formElement.placeholder }}</span>
-    </div>
-    <div class="row">
-        <label>Description:</label> <span>{{input value=formElement.description }}</span>
-    </div>
-    <div class="row">
-        <label>Maxlength:</label> <span>{{input value=formElement.maxlength }}</span>
-    </div>
-    <div class="row">
-        <label>Default:</label> <span>{{input value=formElement.default }}</span>
+        <label>Default:</label> <span>{{input checked=formElement.default}}</span>
     </div>
     <div class="row">
         <label>Required:</label> <span>{{input type="checkbox" checked=formElement.required}}</span>
@@ -32,12 +23,7 @@
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
     <span>
-        {{input
-            disabled=true
-            name=formElement.name
-            placeholder=formElement.placeholder
-            maxlength=formElement.maxlength
-            value=formElement.default}}
+        {{input disabled="true" name="formElement.name"}}
     </span>
 </div>
 {{/if}}

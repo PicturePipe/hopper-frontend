@@ -37,3 +37,14 @@ test('togglIsEditing action', function(assert) {
   component.send('togglIsEditing');
   assert.equal(component.isEditing, false);
 });
+
+test('valuesAsList property', function(assert) {
+  assert.expect(3);
+  var component = this.subject();
+  component.set('formElement', {values: 'foo\nbar\nbatz'});
+  var valuesAsList = component.get('valuesAsList');
+  var expectedValues = ['foo', 'bar', 'batz'];
+  for (var i = 0; i < valuesAsList.length; i++) {
+    assert.equal(valuesAsList[i], expectedValues[i]);
+  }
+});
