@@ -1,0 +1,35 @@
+{{#if isEditing}}
+<div class="field edit">
+    <div class="row">
+        <label>Label:</label> <span>{{input value=formElement.label }}</span>
+    </div>
+    <div class="row">
+        <label>Description:</label> <span>{{input value=formElement.description }}</span>
+    </div>
+    <div class="row">
+        <label>Values:</label> <span>{{textarea rows=5 value=formElement.values }}</span>
+    </div>
+    <div class="row">
+        <label>Default:</label> <span>{{input value=formElement.default }}</span>
+    </div>
+    <div class="row">
+        <label>Required:</label> <span>{{input type="checkbox" checked=formElement.required}}</span>
+    </div>
+    <div class="row">
+        <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
+    </div>
+    <div class="row save-row">
+        <a {{ action "togglIsEditing" on="click"}}>
+            <i class="fa fa-check-circle"></i>
+        </a>
+    </div>
+</div>
+{{else}}
+<div {{bind-attr class=":field formElement.immutable:immutable" }}
+        {{action "togglIsEditing" on="doubleClick"}}>
+    <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
+    <span>
+        {{view "select" content=valuesAsList disabled=true}}
+    </span>
+</div>
+{{/if}}
