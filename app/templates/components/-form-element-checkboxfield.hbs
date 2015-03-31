@@ -28,7 +28,7 @@
     <span>
         {{#each fieldValue in valuesAsList }}
             <label class="checkboxes">
-                <input type="checkbox" {{attr-bind name=formElement.name value=fieldValue}}> {{ fieldValue }}
+                <input type="checkbox" disabled {{attr-bind name=formElement.name value=fieldValue}}> {{ fieldValue }}
             </label>
         {{/each}}
     </span>
