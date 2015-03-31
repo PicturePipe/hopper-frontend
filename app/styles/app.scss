@@ -174,7 +174,7 @@ body, html, div.ember-view {
     border: $solid-black-border;
     label {
         float: left;
-        padding-top: 0.3em;
+        padding-top: 0.4em;
         padding-right: 1em;
         font-weight: bold;
         font-size: 100%;
@@ -187,6 +187,32 @@ body, html, div.ember-view {
 
 .field {
     padding-top: 1em;
+}
+
+.field.edit {
+    padding-bottom: 0;
+    .row {
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: 0.5em;
+    }
+    label {
+        width: 120px;
+    }
+    input[type="checkbox"] {
+        margin-top: 0.8em;
+    }
+    .save-row {
+        a {
+            float: right;
+            font-size: 200%;
+            color: #000000;
+            margin-top: -1em;
+        }
+        a:hover {
+            color: #000000;
+        }
+    }
 }
 
 .immutable {
