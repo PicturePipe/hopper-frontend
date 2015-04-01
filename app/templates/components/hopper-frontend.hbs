@@ -1,6 +1,7 @@
 <div id="hopper" class="row">
 
-    <div id="hopper-first-col" {{bind-attr class=":hopper-col :columns isElementDrawerOpen:medium-13:medium-15"}}>
+    <div id="hopper-first-col"
+            class="hopper-col columns {{if isElementDrawerOpen 'medium-13' 'medium-15'}}">
         <div class="hopper-content">
             <div class="hopper-meta">
                 <div class="form-title">
@@ -45,13 +46,15 @@
         </div>
     </div>
 
-    <div id="hopper-element-drawer" {{bind-attr class=":hopper-col :columns :hopper-col-last isElementDrawerOpen:medium-3:medium-1"}}>
+    <div id="hopper-element-drawer"
+            class="hopper-col columns hopper-col-last {{if isElementDrawerOpen 'medium-3' 'medium-1'}}">
         <div class="hopper-element-drawer">
-            <div {{bind-attr class=':available-fields isElementDrawerOpen:open'}}>
+            <div class="available-fields {{if isElementDrawerOpen 'open'}}">
                 {{ element-drawer addFormElement='addFormElement'}}
             </div>
             <div class="element-drawer-control" {{action "toggleIsElementDrawerOpen" on="click"}}>
-                <i id="toggl-element-drawer-icon" {{bind-attr class=":fa :hopper-col-last isElementDrawerOpen:fa-caret-right:fa-caret-left"}}>
+                <i id="toggl-element-drawer-icon"
+                    class="fa hopper-col-last {{if isElementDrawerOpen 'fa-caret-right' 'fa-caret-left'}}">
                 </i>
             </div>
         </div>

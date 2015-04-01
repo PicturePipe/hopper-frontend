@@ -25,9 +25,9 @@
     </div>
 </div>
 {{else}}
-<div {{bind-attr class=":field formElement.immutable:immutable" }}
+<div class="field {{if formElement.immutable 'immutable'}}"
         {{action "togglIsEditing" on="doubleClick"}}>
-    <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
+    <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
     <span>
         {{view "select" content=valuesAsList disabled=true}}
     </span>
