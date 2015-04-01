@@ -85,7 +85,8 @@ test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', functi
   component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.render();
+  this.render();
+  var $component = component.$();
 
   // assert default state
   assert.ok($component.find('#hopper-element-drawer').hasClass('medium-1'));
@@ -106,7 +107,8 @@ test('css change #hopper-first-col after toggleIsElementDrawerOpen', function(as
   component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.render();
+  this.render();
+  var $component = component.$();
 
   // assert default state
   assert.ok($component.find('#hopper-first-col').hasClass('medium-15'));
@@ -127,7 +129,8 @@ test('css change #toggl-element-drawer-icon after toggleIsElementDrawerOpen', fu
   component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.render();
+  this.render();
+  var $component = component.$();
   // assert default state
   assert.ok($component.find('#toggl-element-drawer-icon').hasClass('fa-caret-left'));
   assert.ok(!$component.find('#toggl-element-drawer-icon').hasClass('fa-caret-right'));
@@ -147,7 +150,8 @@ test('css change .available-fields after toggleIsElementDrawerOpen', function(as
   component.set('targetObject', targetObjectFake);
 
   // append the component to the DOM
-  var $component = this.render();
+  this.render();
+  var $component = component.$();
 
   // assert default state
   assert.ok(!$component.find('.available-fields').hasClass('open'));
@@ -165,7 +169,8 @@ test('add and remove input', function(assert) {
   var component = this.subject();
   component.set('targetObject', targetObjectFake);
 
-  var $component = this.render();
+  this.render();
+  var $component = component.$();
 
   assert.ok($component.find('.form-title > h1').length);
   assert.ok(!$component.find('.form-title > input').length);
