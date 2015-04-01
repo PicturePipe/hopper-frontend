@@ -187,6 +187,9 @@ body, html, div.ember-view {
         display: block;
         overflow: hidden;
     }
+    label.checkboxes {
+        width: 100%;
+    }
 }
 
 .field {
