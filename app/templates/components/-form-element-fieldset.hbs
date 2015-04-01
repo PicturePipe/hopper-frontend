@@ -13,7 +13,7 @@
     </div>
 </div>
 {{else}}
-<div {{bind-attr class=":field formElement.immutable:immutable" }}>
+<div class="field {{if formElement.immutable 'immutable'}}">
     <h2 {{action "togglIsEditing" on="doubleClick"}}>{{ formElement.label }}</h2>
     <div>
         {{#each element in formElement.formElements}}
