@@ -233,3 +233,10 @@ body, html, div.ember-view {
 .sub-elements {
     min-height: 3em;
 }
+
+.ui-sortable-placeholder {
+    border: 2px dashed #555555;
+    visibility: visible !important;
+    height: 50px !important;
+    margin-bottom: 1em;
+}
