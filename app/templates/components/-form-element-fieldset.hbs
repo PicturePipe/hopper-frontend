@@ -15,7 +15,7 @@
 {{else}}
 <div class="field {{if formElement.immutable 'immutable'}}">
     <h2 {{action "togglIsEditing" on="doubleClick"}}>{{ formElement.label }}</h2>
-    <div>
+    <div class="sub-elements">
         {{#each element in formElement.getFormElements}}
             {{ form-element formElement=element }}
         {{/each}}
