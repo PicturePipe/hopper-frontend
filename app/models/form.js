@@ -1,6 +1,8 @@
 import DS from 'ember-data';
+import FormElementsMixin from 'hopper-frontend/mixins/form-elements-mixin';
 
-var Form = DS.Model.extend({
+
+var Form = DS.Model.extend(FormElementsMixin, {
     title: DS.attr('string'),
     formElements: DS.hasMany('formElements', { async: true }),
     action: DS.attr('string'),
