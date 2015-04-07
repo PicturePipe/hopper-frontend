@@ -4,17 +4,17 @@ import FormElementsMixin from 'hopper-frontend/mixins/form-elements-mixin';
 
 var FormElement = DS.Model.extend(FormElementsMixin, {
     label: DS.attr('string'),
-    immutable: DS.attr('bool'),
-    required: DS.attr('required'),
+    immutable: DS.attr('boolean'),
+    required: DS.attr('boolean'),
     elementType: DS.attr('string'),
-    weight: DS.attr('integer'),
+    weight: DS.attr('number'),
     formElements: DS.hasMany('formElement', { async: true }),
     placeholder: DS.attr('string'),
     description: DS.attr('string'),
     values: DS.attr('string'),
-    maxlength: DS.attr('integer'),
+    maxlength: DS.attr('number'),
     default: DS.attr('string'),
-    checked: DS.attr('bool'),
+    checked: DS.attr('boolean'),
 
     name: function() {
         var name = '';
