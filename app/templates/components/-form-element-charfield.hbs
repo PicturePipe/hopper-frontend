@@ -22,6 +22,9 @@
         <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
     </div>
     <div class="row save-row">
+        <a {{ action "removeElement" on="click"}}>
+            <i class="fa fa-times-circle"></i>
+        </a>
         <a {{ action "togglIsEditing" on="click"}}>
             <i class="fa fa-check-circle"></i>
         </a>

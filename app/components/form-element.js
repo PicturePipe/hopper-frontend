@@ -34,6 +34,10 @@ export default Ember.Component.extend({
     togglIsEditing: function() {
         this.toggleProperty('isEditing');
     },
+    removeElement: function() {
+      var formElement = this.get('formElement');
+      formElement.destroyRecord();
+    },
   }
 
 });
