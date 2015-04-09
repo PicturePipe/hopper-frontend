@@ -29,13 +29,26 @@ export default Ember.Component.extend({
                         };
                     }
                 });
-                self.sendAction('updateElementsOrder', order);
+                self.updateElementsOrder(order);
             }
         });
     },
-    actions: {
-        updateElementsOrder: function(order) {
-            this.sendAction('updateElementsOrder', order);
+
+    updateElement: function(order, element_id) {
+        var element_information = order[element_id];
+        var self = this;
+        self.store.find('formElement', element_id).then(function(element) {
+            console.log(element.get('label'));
+            element.set('weight', element_information.weight);
+            element.save();
+        });
+    },
+
+    updateElementsOrder: function(order) {
+        for (var element_id in order) {
+            this.updateElement(order, element_id);
         }
+        this.rerender();
     }
+
 });
