@@ -36,9 +36,15 @@ export default Ember.Component.extend({
     },
 
     updateElement: function(order, elementId) {
+        var self = this;
         var element_information = order[elementId];
-        this.store.find('formElement', elementId).then(function(element) {
+        self.store.find('formElement', elementId).then(function(element) {
             element.set('weight', element_information.weight);
+            self.removeFormElements(element);
+            for (var elementId in element_information.formElements) {
+                self.updateElement(element_information.formElements, elementId);
+                self.addToFormElements(elementId, element);
+            }
             element.save();
         });
     },
@@ -47,7 +53,6 @@ export default Ember.Component.extend({
         // remove all formElements from the given object
         var formElements = obj.get('formElements').toArray();
         obj.get('formElements').removeObjects(formElements);
-        obj.save();
     },
 
     addToFormElements: function(elementId, addTo) {
