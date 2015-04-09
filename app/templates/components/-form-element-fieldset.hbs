@@ -1,5 +1,5 @@
 {{#if isEditing}}
-<div class="field edit" data-id={{ formElement.id }}>
+<div class="field fieldset edit" data-id={{ formElement.id }}>
     <div class="row">
         <label>Title:</label> <span>{{input value=formElement.label }}</span>
     </div>
@@ -13,7 +13,7 @@
     </div>
 </div>
 {{else}}
-<div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}>
+<div class="field fieldset {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}>
     <h2 {{action "togglIsEditing" on="doubleClick"}}>{{ formElement.label }}</h2>
     {{dragable-elements formElements=formElement.getFormElements store=store}}
 </div>

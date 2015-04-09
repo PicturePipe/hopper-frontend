@@ -12,7 +12,11 @@ export default Ember.Component.extend({
             forceHelperSize: true,
             forcePlaceholderSize: true,
             toleranceType: "pointer",
-            update: function() {
+            update: function(event, ui) {
+                if (ui.item.find('.field').hasClass('fieldset') &&
+                        ui.item.parents().eq(2).hasClass('fieldset')) {
+                    hopperOutlet.find('.sub-elements').sortable('cancel');
+                }
                 var order = {};
                 Ember.$('.field').each(function(index) {
                     var element = Ember.$(this);
