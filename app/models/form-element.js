@@ -27,7 +27,7 @@ var FormElement = DS.Model.extend(FormElementsMixin, {
 
 FormElement.reopenClass({
     FIXTURES: [
-        { id: "1", label: 'Director', immutable: true, elementType: 'fieldset', formElements: [2, 3]},
+        //{ id: "1", label: 'Director', immutable: true, elementType: 'fieldset', formElements: [2, 3]},
         { id: "2", label: 'Last Name', required: true, immutable: false, elementType: 'Charfield', weight: 2},
         { id: "3", label: 'First Name', required: false, immutable: true, elementType: 'Charfield', weight: 1},
     ]
