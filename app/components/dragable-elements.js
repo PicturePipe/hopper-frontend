@@ -1,11 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    parentViewDidChange: function() {
-        console.log('parentViewDidChange');
-    },
     didInsertElement: function() {
-        console.log('didInsertElement');
         var self = this;
         var hopperOutlet = this.$().closest('.hopper-outlet');
         hopperOutlet.find('.sub-elements').sortable({
@@ -41,8 +37,7 @@ export default Ember.Component.extend({
 
     updateElement: function(order, elementId) {
         var element_information = order[elementId];
-        var self = this;
-        self.store.find('formElement', elementId).then(function(element) {
+        this.store.find('formElement', elementId).then(function(element) {
             element.set('weight', element_information.weight);
             element.save();
         });
