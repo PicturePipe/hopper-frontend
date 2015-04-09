@@ -1,5 +1,10 @@
 {{#if isEditing}}
 <div class="field edit">
+    {{#if isLabelEmpty}}
+    <div class="row">
+        <strong>Please insert at least a label.</strong>
+    </div>
+    {{/if}}
     <div class="row">
         <label>Title:</label> <span>{{input value=formElement.label }}</span>
     </div>

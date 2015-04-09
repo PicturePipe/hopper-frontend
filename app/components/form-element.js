@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isEditing: false,
+  isLabelEmpty: false,
 
   formElementTemplate: function() {
     // Set the default templateName to 'charfield', because during loading
@@ -32,7 +33,15 @@ export default Ember.Component.extend({
 
   actions: {
     togglIsEditing: function() {
+      if (this.get('formElement.label') === "") {
+        if (this.get('isEditing')) {
+          this.set('isLabelEmpty', true);
+        }
+        this.set('isEditing', true);
+      } else {
+        this.set('isLabelEmpty', false);
         this.toggleProperty('isEditing');
+      }
     },
     removeElement: function() {
       var formElement = this.get('formElement');
