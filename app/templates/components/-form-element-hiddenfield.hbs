@@ -1,5 +1,10 @@
 {{#if isEditing}}
 <div class="field edit" data-id={{ formElement.id }}>
+    {{#if isLabelEmpty}}
+    <div class="row">
+        <strong>Please insert at least a label.</strong>
+    </div>
+    {{/if}}
     <div class="row">
         <label>Label:</label> <span>{{input value=formElement.label }}</span>
     </div>
@@ -13,6 +18,9 @@
         <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
     </div>
     <div class="row save-row">
+        <a {{ action "removeElement" on="click"}}>
+            <i class="fa fa-times-circle"></i>
+        </a>
         <a {{ action "togglIsEditing" on="click"}}>
             <i class="fa fa-check-circle"></i>
         </a>
