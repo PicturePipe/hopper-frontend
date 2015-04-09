@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     fields: [
-        //'Fieldset',
+        'Fieldset',
         'Charfield',
         'Textfield',
         'Select',
