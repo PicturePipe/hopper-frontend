@@ -13,6 +13,18 @@ moduleForComponent('form-element', {
   }
 });
 
+var formElementFake = function () {
+  return {
+    isDeleted: false,
+    get: function () {
+      return this.isDeleted;
+    },
+    destroyRecord: function () {
+      this.isDeleted = true;
+    }
+  };
+};
+
 test('it renders', function(assert) {
   assert.expect(2);
 
@@ -36,6 +48,18 @@ test('togglIsEditing action', function(assert) {
 
   component.send('togglIsEditing');
   assert.equal(component.isEditing, false);
+});
+
+test('removeElement action', function(assert) {
+  assert.expect(2);
+
+  var component = this.subject();
+  component.set('formElement', formElementFake());
+  assert.equal(component.get('formElement').get('isDeleted'), false);
+
+  component.send('removeElement');
+  assert.equal(component.get('formElement').get('isDeleted'), true);
+
 });
 
 test('valuesAsList property', function(assert) {
