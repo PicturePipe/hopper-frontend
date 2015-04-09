@@ -7,7 +7,7 @@ export default Ember.Component.extend({
         hopperOutlet.find('.sub-elements').sortable({
             connectWith: ".sub-elements",
             cursor: "move",
-            cancel: "input,a",
+            cancel: "input,textarea,a",
             delay: 150,
             forceHelperSize: true,
             forcePlaceholderSize: true,
