@@ -17,7 +17,7 @@ var Form = DS.Model.extend(FormElementsMixin, {
 
 Form.reopenClass({
     FIXTURES: [
-        { id: "1", title: 'My awesome Movie', formElements: [2, 3]}
+        { id: "1", title: 'My awesome Movie', formElements: [1, 2]}
     ]
 });
 
