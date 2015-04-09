@@ -24,11 +24,11 @@ export default Ember.Component.extend({
         addFormElement: function(field) {
             var numOfFormElements = this.store.all('formElement').get('length');
             var newElement = this.store.createRecord('formElement', {
-                id: numOfFormElements + 1,
                 label: '',
                 elementType: field,
                 weight: numOfFormElements
             });
+            newElement.save();
             this.get('form').get('formElements').addObject(newElement);
         }
     }
