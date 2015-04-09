@@ -33,9 +33,6 @@ export default Ember.Component.extend({
   actions: {
     togglIsEditing: function() {
       this.toggleProperty('isEditing');
-    },
-    updateElementsOrder: function(order) {
-      this.sendAction('updateElementsOrder', order);
     }
   }
 });
