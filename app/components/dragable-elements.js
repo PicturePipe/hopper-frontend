@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    parentViewDidChange: function() {
+        console.log('parentViewDidChange');
+    },
     didInsertElement: function() {
+        console.log('didInsertElement');
         var self = this;
         var hopperOutlet = this.$().closest('.hopper-outlet');
         hopperOutlet.find('.sub-elements').sortable({
@@ -30,25 +34,43 @@ export default Ember.Component.extend({
                     }
                 });
                 self.updateElementsOrder(order);
+                self.rerender();
             }
         });
     },
 
-    updateElement: function(order, element_id) {
-        var element_information = order[element_id];
+    updateElement: function(order, elementId) {
+        var element_information = order[elementId];
         var self = this;
-        self.store.find('formElement', element_id).then(function(element) {
-            console.log(element.get('label'));
+        self.store.find('formElement', elementId).then(function(element) {
             element.set('weight', element_information.weight);
             element.save();
         });
     },
 
+    removeFormElements: function(obj) {
+        // remove all formElements from the given object
+        var formElements = obj.get('formElements').toArray();
+        obj.get('formElements').removeObjects(formElements);
+        obj.save();
+    },
+
+    addToFormElements: function(elementId, addTo) {
+        this.store.find('formElement', elementId).then(function(formElement) {
+            addTo.get('formElements').pushObject(formElement);
+        });
+    },
+
     updateElementsOrder: function(order) {
-        for (var element_id in order) {
-            this.updateElement(order, element_id);
+        // will be replaced with actual call later
+        var form = this.store.find('form', 1);
+        form.then(this.removeFormElements);
+
+        for (var elementId in order) {
+            this.updateElement(order, elementId);
+            this.addToFormElements(elementId, form);
         }
-        this.rerender();
+
     }
 
 });
