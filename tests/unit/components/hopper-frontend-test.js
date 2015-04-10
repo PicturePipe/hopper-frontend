@@ -9,7 +9,7 @@ var findOrAllFake = function () {
       return this;
     },
     addObject: function() {
-      this.length = 2;
+      this.length++;
     },
     length: 1,
   };
@@ -18,7 +18,9 @@ var findOrAllFake = function () {
 targetObjectFake = {
   store: {
     find: findOrAllFake,
-    createRecord: function () {},
+    createRecord: function () {
+      return {save: function() {}};
+    },
     all: findOrAllFake,
   }
 };
