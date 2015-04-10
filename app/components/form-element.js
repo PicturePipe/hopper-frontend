@@ -26,9 +26,13 @@ export default Ember.Component.extend({
   },
 
   valuesAsList: function() {
-    if (typeof(this.get('formElement.values')) !== 'undefined') {
-      return this.get('formElement.values').split('\n');
+    var valuesAsList = [];
+    var type = typeof(this.get('formElement.values'));
+    var brokenTypes = ['undefined', 'null', 'object'];
+    if (brokenTypes.indexOf(type) < 0) {
+      valuesAsList = this.get('formElement.values').split('\n');
     }
+    return valuesAsList;
   }.property('formElement.values'),
 
   actions: {
