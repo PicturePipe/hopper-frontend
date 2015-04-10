@@ -4,16 +4,21 @@ import {
   test
 } from 'ember-qunit';
 
-var fakeFormElements = ['Foo', 'Bar'];
-
 var fakeObject = Ember.Object.extend({
-  formElements: ['Foo', 'Bar'],
   removeObjects: function(objects) {
     this.set('formElements', []);
   },
 });
 
-
+var fakeStore = function() {
+  return {
+    find: function() {
+      return new Ember.RSVP.Promise(function(resolve, reject) {
+        resolve('Batz');
+      });
+    }
+  };
+};
 
 moduleForComponent('dragable-elements', {
   // Specify the other units that are required for this test
@@ -24,10 +29,24 @@ test('removeFormElements', function(assert) {
   assert.expect(2);
   var component = this.subject();
   var obj = fakeObject.create();
+  var formElements = new Array('Foo', 'Bar');
+  obj.set('formElements', formElements);
   assert.equal(obj.get('formElements').length, 2);
   component.removeFormElements(obj);
   assert.equal(obj.get('formElements').length, 0);
 });
+
+test('addToFormElements', function(assert) {
+  var component = this.subject();
+  component.store = fakeStore();
+  var obj = fakeObject.create();
+  var elements = new Array('Foo', 'Bar');
+  obj.set('formElements', elements);
+  assert.equal(obj.get('formElements').length, 2);
+  component.addToFormElements('Batz', obj);
+  Ember.run.later(assert, 'equal', obj.get('formElements').length, 3, 1000);
+});
+
 
 test('it renders', function(assert) {
   assert.expect(2);
