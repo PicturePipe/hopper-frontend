@@ -25,5 +25,5 @@ test('route model', function (assert) {
     }
   };
 
-  assert.equal(route.model().id, 1);
+  assert.equal(route.model().id, 'fixture-0');
 });
