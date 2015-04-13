@@ -37,6 +37,7 @@ test('removeFormElements', function(assert) {
 });
 
 test('addToFormElements', function(assert) {
+  assert.expect(2);
   var component = this.subject();
   component.store = fakeStore();
   var obj = fakeObject.create();
