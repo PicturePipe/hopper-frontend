@@ -46,7 +46,14 @@ test('addToFormElements', function(assert) {
   component.addToFormElements('Batz', obj);
   // Fix this test later.
   // There is a problem with testing promises at the moment.
-  //assert.equal(obj.get('formElements').length, 3);
+  var done = assert.async();
+  setTimeout(
+    function() {
+      assert.equal(obj.get('formElements').length, 3);
+      done();
+    },
+    500
+  );
 });
 
 
