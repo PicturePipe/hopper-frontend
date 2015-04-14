@@ -42,7 +42,6 @@ export default Ember.Route.extend({
             });
             formElement.save();
             parent.get('formElements').pushObject(formElement);
-            console.log(parent);
             if(typeof(formElementInfo.elements) !== 'undefined') {
                 self.createFormElements(formElement, formElementInfo.elements);
             }
@@ -57,7 +56,11 @@ export default Ember.Route.extend({
         return Ember.$.ajax({
             type: 'GET',
             contentType: 'application/json',
-            url: ''
+            url: 'http://jsonstub.com/form/1',
+            beforeSend: function (request) {
+                request.setRequestHeader('JsonStub-User-Key', 'ad5cc745-2f67-45eb-8446-1daf590de52e');
+                request.setRequestHeader('JsonStub-Project-Key', '1aa2304f-202c-416a-b2de-24312e4a3c46');
+            }
         }).done(function (data) {
             var formData = data.form;
             var form = self.store.createRecord('form', {
@@ -70,7 +73,7 @@ export default Ember.Route.extend({
             });
             form.save();
             self.createFormElements(form, formData.elements);
-            return form;
+            self.refresh();
         });
     },
 });
