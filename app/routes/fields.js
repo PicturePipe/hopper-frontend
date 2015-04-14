@@ -40,7 +40,6 @@ export default Ember.Route.extend({
                 immutable: formElementInfo['immutable'] || false,
                 checked: formElementInfo['checked'] || false,
             });
-            formElement.save();
             parent.get('formElements').pushObject(formElement);
             if(typeof(formElementInfo.elements) !== 'undefined') {
                 self.createFormElements(formElement, formElementInfo.elements);
@@ -71,7 +70,6 @@ export default Ember.Route.extend({
                 'formClasses': formData.css_classes,
                 'fieldClasses': formData.elements_css_classes
             });
-            form.save();
             self.createFormElements(form, formData.elements);
             self.refresh();
         });
