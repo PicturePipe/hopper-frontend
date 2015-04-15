@@ -52,13 +52,16 @@ export default Ember.Route.extend({
         if (self.store.all('form').get('length')) {
             return self.store.find('form', 'fixture-0');
         }
+        var app = self.container.lookup('application:main');
+        console.log(app);
         return Ember.$.ajax({
             type: 'GET',
             contentType: 'application/json',
-            url: 'http://jsonstub.com/form/1',
+            url: app.HOPPER_DATA_URL,
             beforeSend: function (request) {
-                request.setRequestHeader('JsonStub-User-Key', 'ad5cc745-2f67-45eb-8446-1daf590de52e');
-                request.setRequestHeader('JsonStub-Project-Key', '1aa2304f-202c-416a-b2de-24312e4a3c46');
+                for (var heading in app.HOPPER_EXTRA_HEADERS) {
+                    request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
+                }
             }
         }).done(function (data) {
             var formData = data.form;
