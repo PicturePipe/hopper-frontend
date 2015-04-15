@@ -14,16 +14,19 @@ test('it exists', function(assert) {
 });
 
 test('route model', function (assert) {
-  assert.expect(2);
+  assert.expect(3);
   var route = this.subject();
 
   // stubbing the store object
   route.store = {
-    find: function(model, formId){
+    find: function(model, formId) {
       assert.equal(model, 'form');
       return {id: formId};
+    },
+    all: function(model) {
+      assert.equal(model, 'form');
+      return [{id: 'fixture-0'}];
     }
   };
-
   assert.equal(route.model().id, 'fixture-0');
 });
