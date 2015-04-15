@@ -73,14 +73,10 @@ test('addFormElement action', function(assert) {
   component.set('targetObject', targetObjectFake);
   this.render();
 
-  var done = assert.async();
+  assert.equal(component.get('form').get('formElements').length, 1);
 
-  setTimeout(function() {
-    assert.equal(component.get('form').get('formElements').length, 1);
-    component.send('addFormElement', 'TestField');
-    assert.equal(component.get('form').get('formElements').length, 2);
-    done();
-  }, 1000 );
+  component.send('addFormElement', 'TestField');
+  assert.equal(component.get('form').get('formElements').length, 2);
 });
 
 test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', function(assert) {

@@ -5,11 +5,8 @@ export default Ember.Component.extend({
     isTitleBeingEdited: false,
 
     didInsertElement: function() {
-        var self = this;
-        self.set('store', self.get('targetObject.store'));
-        Ember.run.later(function() {
-            self.set('form', self.store.find('form', 'fixture-0'));
-        }, 1000);
+        this.set('store', this.get('targetObject.store'));
+        this.set('form', this.store.find('form', 'fixture-0'));
     },
 
     actions: {
