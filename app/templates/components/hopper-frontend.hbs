@@ -4,7 +4,7 @@
             class="hopper-col columns {{if isElementDrawerOpen 'medium-13' 'medium-15'}}">
         <div class="hopper-content">
             <div class="hopper-meta">
-                <div class="form-title">
+                <div class="form-title" id="formTitle">
                     {{#if isTitleBeingEdited}}
                         {{edit-title-input
                             focus-out="acceptTitleChange"
@@ -15,7 +15,7 @@
                     {{/if}}
                 </div>
                 <div class="form-meta-toggl">
-                    <ul class="button-group">
+                    <ul class="button-group" id="routeList">
                         <li>
                             {{#link-to "fields" activeClass="active" class="small button"}}
                                 Fields
@@ -35,7 +35,7 @@
                     <a href="#" class="button small alert">
                         Cancel
                     </a>
-                    <a href="#" class="button small">
+                    <a {{action "startHelp" on="click" }} class="button small" id="helpButton">
                         Help
                     </a>
                 </div>
@@ -52,7 +52,8 @@
             <div class="available-fields {{if isElementDrawerOpen 'open'}}">
                 {{ element-drawer addFormElement='addFormElement'}}
             </div>
-            <div class="element-drawer-control" {{action "toggleIsElementDrawerOpen" on="click"}}>
+            <div class="element-drawer-control" {{action "toggleIsElementDrawerOpen" on="click"}}
+                    id="elementDrawer">
                 <i id="toggl-element-drawer-icon"
                     class="fa hopper-col-last {{if isElementDrawerOpen 'fa-caret-right' 'fa-caret-left'}}">
                 </i>
@@ -60,3 +61,50 @@
         </div>
     </div>
 </div>
+
+<div id="hopperOutletHelper"></div>
+
+
+<ol class="joyride-list" data-joyride>
+
+  <li data-text="Next" data-options="prev_button: false">
+    <h4>How to create a form</h4>
+    <p>
+        Welcome to our short tutorial, how to use this form constructor.
+    </p>
+  </li>
+
+  <li data-id="formTitle" data-options="tip_location: bottom;" data-text="Next" data-prev-text="Prev">
+    <h4>Changing the form title</h4>
+    <p>
+        To change the title double click at the current one. After you are done, just click somewhere else or press the enter button.
+    </p>
+  </li>
+
+  <li data-id="elementDrawer" data-options="tip_location: left;" data-text="Next" data-prev-text="Prev">
+    <h4>Adding a new field</h4>
+    <p>
+        If you wish to add a new field, you can click on this "drawer" to open it and show all possible fields. Select the field you want to add and click on it to do so. It will be appended at the end of your form where you can start filling it its attributes, like the Label or for example a placeholder.
+    </p>
+  </li>
+
+  <li data-id="hopperOutletHelper" data-options="tip_location: bottom;" data-text="Next" data-prev-text="Prev"      data-class="move-down" >
+    <h4>Editing an existing field</h4>
+    <p>
+        Down here you find your already added fields. To edit one, simply double click on it's label. After you are done with editing, click the check mark. If you want to delete a field, click on the cross.
+    </p>
+  </li>
+
+  <li data-id="routeList" data-options="tip_location: bottom;" data-text="Next" data-prev-text="Prev"
+        data-class="move-down" >
+    <h4>Switching between editing the fields and the form</h4>
+    <p>
+        Up here, you can choose if you want to edit the fields or the actual form itself.
+    </p>
+  </li>
+
+  <li data-button="End" data-prev-text="Prev">
+    <p>It works as a modal too!</p>
+  </li>
+
+</ol>
