@@ -74,31 +74,35 @@ test('addToFormElements', function(assert) {
 });
 
 test('updateElement', function(assert) {
-  assert.expect(2);
+  assert.expect(4);
   var component = this.subject();
   component.store = fakeStore();
   var order = {
     "title": {
       "type": "input",
       "label": "Title",
-      "placeholder": "Enter the title",
       "weight": 1,
-      "immutable": false,
-      "readonly": false,
-      "required": true,
-      "maxlength": 50,
-      "default": ""
+      "formElements": {
+        "subtitle": {
+          "type": "input",
+          "label": "Subtitle",
+          "weight": 2
+        }
+      }
+
     },
   };
   var obj = new fakeObject();
   obj.set('weight', 0);
   component.store.objects['title'] = obj;
   assert.equal(component.store.objects['title'].get('weight'), 0);
+  assert.equal(component.store.objects['title'].get('formElements').length, 0);
 
   component.updateElement(order, 'title');
   var done1 = assert.async();
   setTimeout(function(){
     assert.equal(component.store.objects['title'].get('weight'), 1);
+    assert.equal(component.store.objects['title'].get('formElements').length, 1);
     done1();
   }, 100);
 });
