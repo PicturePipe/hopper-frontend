@@ -27,7 +27,7 @@ export default Ember.Component.extend({
         },
         startHelp: function() {
             this.set('isElementDrawerOpen', false);
-            this.$(document).foundation('joyride', 'start');
+            Ember.$(document).foundation('joyride', 'start');
             if(this.get('currentController').currentRouteName !== 'fields') {
                 this.get('currentController').transitionToRoute('fields');
             }
