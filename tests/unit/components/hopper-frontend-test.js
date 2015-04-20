@@ -25,6 +25,15 @@ targetObjectFake = {
   }
 };
 
+var fakeController = function(route) {
+  var obj = {};
+  obj.currentRouteName = route || 'fields';
+  obj.transitionToRoute = function (route) {
+    this.currentRouteName = route;
+  };
+  return obj;
+};
+
 moduleForComponent('hopper-frontend', {
   // specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
@@ -184,6 +193,28 @@ test('add and remove input', function(assert) {
 
   assert.ok(!$component.find('.form-title > h1').length);
   assert.ok($component.find('.form-title > input').length);
+});
+
+test('startHelp action closing element-drawer', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('currentController', fakeController());
+  component.set('isElementDrawerOpen', true);
+  assert.equal(component.get('isElementDrawerOpen'), true);
+
+  component.send('startHelp');
+  assert.equal(component.get('isElementDrawerOpen'), false);
+});
+
+test('startHelp action transition to route', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  var controler = fakeController('form');
+  component.set('currentController', controler);
+  assert.equal(controler.currentRouteName, 'form');
+
+  component.send('startHelp');
+  assert.equal(controler.currentRouteName, 'fields');
 });
 
 test('it renders', function(assert) {
