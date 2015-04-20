@@ -1,5 +1,1 @@
-<div> <!-- this will be replaced with a component for choosen fields -->
-    {{#each element in model.formElements}}
-        {{ form-element formElement=element }}
-    {{/each}}
-</div>
+{{dragable-elements formElements=model.getFormElements store=store}}
