@@ -81,7 +81,5 @@ export default Ember.Component.extend({
             this.updateElement(order, elementId);
             this.addToFormElements(elementId, form);
         }
-
     }
-
 });
