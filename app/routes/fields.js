@@ -53,7 +53,6 @@ export default Ember.Route.extend({
             return self.store.find('form', 'fixture-0');
         }
         var app = self.container.lookup('application:main');
-        console.log(app);
         return Ember.$.ajax({
             type: 'GET',
             contentType: 'application/json',
