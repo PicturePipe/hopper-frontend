@@ -3,20 +3,25 @@ import {
   test
 } from 'ember-qunit';
 
-var targetObjectFake = {
+var findOrAllFake = function () {
+  return {
+    get: function() {
+      return this;
+    },
+    addObject: function() {
+      this.length++;
+    },
+    length: 1,
+  };
+},
+
+targetObjectFake = {
   store: {
-    find: function () {
-      return {
-        get: function() {
-          return this;
-        },
-          addObject: function() {
-            this.length = 2;
-          },
-          length: 1,
-        };
-      },
-    createRecord: function () {}
+    find: findOrAllFake,
+    createRecord: function () {
+      return {save: function() {}};
+    },
+    all: findOrAllFake,
   }
 };
 

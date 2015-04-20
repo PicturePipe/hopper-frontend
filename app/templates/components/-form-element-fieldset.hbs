@@ -1,5 +1,5 @@
 {{#if isEditing}}
-<div class="field edit">
+<div class="field fieldset edit" data-id={{ formElement.id }}>
     {{#if isLabelEmpty}}
     <div class="row">
         <strong>Please insert at least a label.</strong>
@@ -21,12 +21,8 @@
     </div>
 </div>
 {{else}}
-<div class="field {{if formElement.immutable 'immutable'}}">
+<div class="field fieldset {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}>
     <h2 {{action "togglIsEditing" on="doubleClick"}}>{{ formElement.label }}</h2>
-    <div>
-        {{#each element in formElement.formElements}}
-            {{ form-element formElement=element }}
-        {{/each}}
-    </div>
+    {{dragable-elements formElements=formElement.getFormElements store=store}}
 </div>
 {{/if}}
