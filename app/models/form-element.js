@@ -25,11 +25,6 @@ var FormElement = DS.Model.extend(FormElementsMixin, {
     }.property('label')
 });
 
-FormElement.reopenClass({
-    FIXTURES: [
-        { id: "1", label: 'Last Name', required: true, immutable: false, elementType: 'Charfield', weight: 1},
-        { id: "2", label: 'First Name', required: false, immutable: true, elementType: 'Charfield', weight: 0},
-    ]
-});
+FormElement.reopenClass({FIXTURES: []});
 
 export default FormElement;

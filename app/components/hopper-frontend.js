@@ -6,9 +6,7 @@ export default Ember.Component.extend({
 
     didInsertElement: function() {
         this.set('store', this.get('targetObject.store'));
-        // set this static for now
-        // will be replaced with our API call later
-        this.set('form', this.store.find('form', 1 ));
+        this.set('form', this.store.find('form', 'fixture-0'));
     },
 
     actions: {

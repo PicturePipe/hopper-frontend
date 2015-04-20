@@ -74,7 +74,7 @@ export default Ember.Component.extend({
 
     updateElementsOrder: function(order) {
         // will be replaced with actual call later
-        var form = this.store.find('form', 1);
+        var form = this.store.find('form', 'fixture-0');
         form.then(this.removeFormElements);
 
         for (var elementId in order) {

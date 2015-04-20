@@ -86,6 +86,7 @@ test('addFormElement action', function(assert) {
   var component = this.subject();
   component.set('targetObject', targetObjectFake);
   this.render();
+
   assert.equal(component.get('form').get('formElements').length, 1);
 
   component.send('addFormElement', 'TestField');
