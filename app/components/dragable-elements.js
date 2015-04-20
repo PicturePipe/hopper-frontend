@@ -21,6 +21,13 @@ export default Ember.Component.extend({
                 Ember.$('.field').each(function(index) {
                     var element = Ember.$(this);
                     var parentNode = element.parents().eq(3);
+                    /* .parents() returns all elements upwards till the root
+                     * node, starting with the current one. The element 0 is
+                     * the current one. 1 is the div.sub-element we are using
+                     * to connect with. 2 is a div, added by ember.
+                     * To get the hopper-outlet or the parent element we have
+                     * to use the 3.
+                     */
                     if (parentNode.hasClass('hopper-outlet')) {
                         order[element.data('id')] = {
                             weight: index,
