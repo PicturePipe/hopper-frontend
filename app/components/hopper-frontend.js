@@ -28,6 +28,13 @@ export default Ember.Component.extend({
             });
             newElement.save();
             this.get('form').get('formElements').addObject(newElement);
+        },
+        startHelp: function() {
+            this.set('isElementDrawerOpen', false);
+            Ember.$(document).foundation('joyride', 'start');
+            if(this.get('currentController').currentRouteName !== 'fields') {
+                this.get('currentController').transitionToRoute('fields');
+            }
         }
     }
 });
