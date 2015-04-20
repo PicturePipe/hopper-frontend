@@ -66,9 +66,9 @@ export default Ember.Component.extend({
         obj.get('formElements').removeObjects(formElements);
     },
 
-    addToFormElements: function(elementId, addTo) {
+    addToFormElements: function(elementId, parent) {
         this.store.find('formElement', elementId).then(function(formElement) {
-            addTo.get('formElements').pushObject(formElement);
+            parent.get('formElements').pushObject(formElement);
         });
     },
 
