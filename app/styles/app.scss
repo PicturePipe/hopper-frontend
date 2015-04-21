@@ -183,9 +183,7 @@ body, html, div.ember-view {
 
 .field, .fieldset {
     margin-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: 1em;
+    padding: 1em;
     input {
         margin-bottom: 0;
     }
@@ -193,6 +191,8 @@ body, html, div.ember-view {
 
 .field {
     background-color: #FFFFFF;
+    min-height: 4.5em;
+    padding-top: 0.7em
 }
 
 .meta-form {
