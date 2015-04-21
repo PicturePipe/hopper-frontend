@@ -1,8 +1,3 @@
-// variable overridings
-$fa-font-path: "fontawesome/fonts";
-$row-width: 100%;
-$total-columns: 16;
-
 // variable definitions
 $element-drawer-width: 50px;
 $hopper-meta-height: 100px;
@@ -17,9 +12,20 @@ $hopper-color-red: #A32625; //red
 $hopper-color-orange: #DB4F35; //orange
 $hopper-color-lightblue: #46D6C4; //lightblue
 
+// variable overridings
+$fa-font-path: "fontawesome/fonts";
+$row-width: 100%;
+$total-columns: 16;
+
+$button-bg-color: $hopper-color-blue;
+$button-bg-hover: $hopper-color-darkblue;
+
 /* Background pattern from subtlepatterns.com */
 $hopper-background-url: '/images/crossword.png';
 
+.button.active {
+    background-color: $hopper-color-darkblue!important;
+}
 
 // mixins
 @mixin border-radius-mixin($radius) {
