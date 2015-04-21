@@ -1,5 +1,5 @@
 {{#if isEditing}}
-<div class="field edit">
+<div class="field edit" data-id={{ formElement.id }}>
     {{#if isLabelEmpty}}
     <div class="row">
         <strong>Please insert at least a label.</strong>
@@ -29,7 +29,7 @@
     {{ partial "components/-form-element-save-row" }}
 </div>
 {{else}}
-<div class="field {{if formElement.immutable 'immutable'}}"
+<div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
     <span>

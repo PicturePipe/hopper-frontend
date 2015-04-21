@@ -21,6 +21,12 @@ var app = new EmberApp();
 // Foundation
 app.import('bower_components/foundation/js/foundation.min.js');
 
+// jQuery Sortable
+app.import('bower_components/jquery-ui/ui/core.js');
+app.import('bower_components/jquery-ui/ui/widget.js');
+app.import('bower_components/jquery-ui/ui/mouse.js');
+app.import('bower_components/jquery-ui/ui/sortable.js');
+
 var fontawesomeAssets = pickFiles('bower_components/fontawesome', {
     srcDir: '/fonts',
     files: ['FontAwesome.otf', 'fontawesome-webfont.*'],

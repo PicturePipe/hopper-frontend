@@ -74,6 +74,12 @@ body, html, div.ember-view {
     padding-right: 0;
 }
 
+#hopperOutletHelper {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+}
+
 #hopper {
     @extend .full-height;
 }
@@ -252,3 +258,13 @@ body, html, div.ember-view {
     background-color: #007095;
 }
 
+.sub-elements {
+    min-height: 3em;
+}
+
+.ui-sortable-placeholder {
+    border: 2px dashed #555555;
+    visibility: visible !important;
+    height: 50px !important;
+    margin-bottom: 1em;
+}

@@ -6,9 +6,7 @@ export default Ember.Component.extend({
 
     didInsertElement: function() {
         this.set('store', this.get('targetObject.store'));
-        // set this static for now
-        // will be replaced with our API call later
-        this.set('form', this.store.find('form', 1 ));
+        this.set('form', this.store.find('form', 'fixture-0'));
     },
 
     actions: {
@@ -22,8 +20,21 @@ export default Ember.Component.extend({
             this.set('isTitleBeingEdited', false);
         },
         addFormElement: function(field) {
-            var newElement = this.store.createRecord('formElement', {label: '', elementType: field});
+            var numOfFormElements = this.store.all('formElement').get('length');
+            var newElement = this.store.createRecord('formElement', {
+                label: '',
+                elementType: field,
+                weight: numOfFormElements
+            });
+            newElement.save();
             this.get('form').get('formElements').addObject(newElement);
+        },
+        startHelp: function() {
+            this.set('isElementDrawerOpen', false);
+            Ember.$(document).foundation('joyride', 'start');
+            if(this.get('currentController').currentRouteName !== 'fields') {
+                this.get('currentController').transitionToRoute('fields');
+            }
         }
     }
 });

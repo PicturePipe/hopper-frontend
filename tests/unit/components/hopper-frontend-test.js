@@ -3,21 +3,35 @@ import {
   test
 } from 'ember-qunit';
 
-var targetObjectFake = {
+var findOrAllFake = function () {
+  return {
+    get: function() {
+      return this;
+    },
+    addObject: function() {
+      this.length++;
+    },
+    length: 1,
+  };
+},
+
+targetObjectFake = {
   store: {
-    find: function () {
-      return {
-        get: function() {
-          return this;
-        },
-          addObject: function() {
-            this.length = 2;
-          },
-          length: 1,
-        };
-      },
-    createRecord: function () {}
+    find: findOrAllFake,
+    createRecord: function () {
+      return {save: function() {}};
+    },
+    all: findOrAllFake,
   }
+};
+
+var fakeController = function(route) {
+  var obj = {};
+  obj.currentRouteName = route || 'fields';
+  obj.transitionToRoute = function (route) {
+    this.currentRouteName = route;
+  };
+  return obj;
 };
 
 moduleForComponent('hopper-frontend', {
@@ -72,6 +86,7 @@ test('addFormElement action', function(assert) {
   var component = this.subject();
   component.set('targetObject', targetObjectFake);
   this.render();
+
   assert.equal(component.get('form').get('formElements').length, 1);
 
   component.send('addFormElement', 'TestField');
@@ -179,6 +194,28 @@ test('add and remove input', function(assert) {
 
   assert.ok(!$component.find('.form-title > h1').length);
   assert.ok($component.find('.form-title > input').length);
+});
+
+test('startHelp action closing element-drawer', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  component.set('currentController', fakeController());
+  component.set('isElementDrawerOpen', true);
+  assert.equal(component.get('isElementDrawerOpen'), true);
+
+  component.send('startHelp');
+  assert.equal(component.get('isElementDrawerOpen'), false);
+});
+
+test('startHelp action transition to route', function(assert) {
+  assert.expect(2);
+  var component = this.subject();
+  var controler = fakeController('form');
+  component.set('currentController', controler);
+  assert.equal(controler.currentRouteName, 'form');
+
+  component.send('startHelp');
+  assert.equal(controler.currentRouteName, 'fields');
 });
 
 test('it renders', function(assert) {
