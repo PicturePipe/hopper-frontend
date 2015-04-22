@@ -29,7 +29,7 @@
                     </ul>
                 </div>
                 <div class="form-control">
-                    <a href="#" class="button small success">
+                    <a {{action "saveForm" on="click"}} class="button small success">
                         Save
                     </a>
                     <a href="#" class="button small alert">
@@ -108,3 +108,9 @@
   </li>
 
 </ol>
+
+<div id="saveModal" class="reveal-modal" data-reveal aria-labelledby="saveModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="saveModalTitle">Success!</h2>
+  <p class="lead">You successfully saved your form.</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

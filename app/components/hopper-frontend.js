@@ -4,6 +4,24 @@ export default Ember.Component.extend({
     isElementDrawerOpen: false,
     isTitleBeingEdited: false,
 
+    fieldTypesReverse: {
+        'Fieldset': 'fieldset',
+        'Charfield': 'input',
+        'Textfield': 'textarea',
+        'Select': 'select',
+        'Radiobuttons': 'radio',
+        'Multiselect': 'multiselect',
+        'Checkboxfield': 'checkbox',
+        'Datefield': 'date',
+        'Datetimefield': 'datetime',
+        'Uploadfield': 'file',
+        'Integerfield': 'integer',
+        'Mailfield': 'mail',
+        'Urlfield': 'url',
+        'Passwordfield': 'password',
+        'Hiddenfield': 'hidden',
+    },
+
     didInsertElement: function() {
         this.set('store', this.get('targetObject.store'));
         this.set('form', this.store.find('form', 'fixture-0'));
@@ -35,6 +53,63 @@ export default Ember.Component.extend({
             if(this.get('currentController').currentRouteName !== 'fields') {
                 this.get('currentController').transitionToRoute('fields');
             }
+        },
+        saveForm: function() {
+            var self = this;
+            var form = this.get('form');
+            var formData = {
+                'form': {
+                    'title': form.get('title'),
+                    'method': form.get('method'),
+                    'action': form.get('action'),
+                    'enctype': form.get('enctype'),
+                    'css_classes': form.get('formClasses'),
+                    'elements_css_classes': form.get('fieldClasses'),
+                    'elements': {}
+                }
+            };
+            form.get('formElements').then(
+                function(formElements) {
+                    var formElementArray = formElements.toArray();
+                    for (var i = 0; i < formElementArray.get('length'); i++) {
+                        var formElement = formElementArray[i];
+                        var choices = formElement.get('values') || '';
+                        var formElementInfo = {
+                            'type': self.fieldTypesReverse[formElement.get('elementType')],
+                            'label': formElement.get('label'),
+                            'placeholder': formElement.get('placeholder'),
+                            'weight': formElement.get('weight'),
+                            'immutable': formElement.get('immutable'),
+                            'required': formElement.get('required'),
+                            'maxlength': formElement.get('maxlength'),
+                            'default': formElement.get('default'),
+                            'description': formElement.get('description'),
+                            'checked': formElement.get('checked'),
+                            'choices': choices.split('\n'),
+                        };
+                        // formElements
+                        formData.form.elements[formElement.get('name')] = formElementInfo;
+                    }
+                    var app = self.container.lookup('application:main');
+                    Ember.$.ajax({
+                        type: 'POST',
+                        contentType: 'application/json',
+                        url: app.HOPPER_DATA_URL,
+                        data: formData,
+                        beforeSend: function (request) {
+                            for (var heading in app.HOPPER_EXTRA_HEADERS) {
+                                request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
+                            }
+                        }
+                    }).done(function () {
+                        Ember.$('#saveModal').foundation('reveal', 'open');
+                    }).fail(function (error) {
+                        console.error('Something went wrong!');
+                        console.error(error.status + ': ' + error.statusText);
+                    });
+                }
+
+            );
         }
     }
 });
