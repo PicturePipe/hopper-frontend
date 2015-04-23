@@ -111,7 +111,6 @@ export default Ember.Component.extend({
                         }
                     }
                     var app = self.container.lookup('application:main');
-                    console.log(formData);
                     Ember.$.ajax({
                         type: 'POST',
                         contentType: 'application/json',
