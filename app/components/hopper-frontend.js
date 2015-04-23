@@ -27,6 +27,38 @@ export default Ember.Component.extend({
         this.set('form', this.store.find('form', 'fixture-0'));
     },
 
+    extractFormElementInfo: function(formElement, isSubelement) {
+        var self = this;
+        var choices = formElement.get('values') || '';
+        var formElementInfo = {
+            'type': self.fieldTypesReverse[formElement.get('elementType')],
+            'label': formElement.get('label'),
+            'placeholder': formElement.get('placeholder'),
+            'weight': formElement.get('weight'),
+            'immutable': formElement.get('immutable'),
+            'required': formElement.get('required'),
+            'maxlength': formElement.get('maxlength'),
+            'default': formElement.get('default'),
+            'description': formElement.get('description'),
+            'checked': formElement.get('checked'),
+            'choices': choices.split('\n'),
+            'elements': {}
+        };
+        formElement.get('formElements').then(function(subFormElements) {
+            if (!isSubelement) {
+                var subFormElementsArray = subFormElements.toArray();
+                if (subFormElementsArray.get('length') > 0) {
+                    for (var i = 0; i < subFormElementsArray.get('length'); i++) {
+                        var subFormElement = subFormElementsArray[i];
+                        formElementInfo.elements[subFormElement.get('name')] = self.extractFormElementInfo(
+                            subFormElement, true);
+                    }
+                }
+            }
+        });
+        return formElementInfo;
+    },
+
     actions: {
         toggleIsElementDrawerOpen: function () {
             this.toggleProperty('isElementDrawerOpen');
@@ -71,26 +103,15 @@ export default Ember.Component.extend({
             form.get('formElements').then(
                 function(formElements) {
                     var formElementArray = formElements.toArray();
-                    for (var i = 0; i < formElementArray.get('length'); i++) {
-                        var formElement = formElementArray[i];
-                        var choices = formElement.get('values') || '';
-                        var formElementInfo = {
-                            'type': self.fieldTypesReverse[formElement.get('elementType')],
-                            'label': formElement.get('label'),
-                            'placeholder': formElement.get('placeholder'),
-                            'weight': formElement.get('weight'),
-                            'immutable': formElement.get('immutable'),
-                            'required': formElement.get('required'),
-                            'maxlength': formElement.get('maxlength'),
-                            'default': formElement.get('default'),
-                            'description': formElement.get('description'),
-                            'checked': formElement.get('checked'),
-                            'choices': choices.split('\n'),
-                        };
-                        // formElements
-                        formData.form.elements[formElement.get('name')] = formElementInfo;
+                    if (formElementArray.get('length') > 0) {
+                        for (var i = 0; i < formElementArray.get('length'); i++) {
+                            var formElement = formElementArray[i];
+                            formData.form.elements[formElement.get('name')] = self.extractFormElementInfo(
+                                formElement, false);
+                        }
                     }
                     var app = self.container.lookup('application:main');
+                    console.log(formData);
                     Ember.$.ajax({
                         type: 'POST',
                         contentType: 'application/json',
