@@ -1,7 +1,7 @@
 // variable definitions
 $element-drawer-width: 50px;
 $hopper-meta-height: 100px;
-$solid-black-border: 2px solid #000000;
+$solid-black-border: 1px solid #000000;
 
 $hopper-light-gray: #E6E6E6;
 $hopper-light-green: #CBE8BA;
@@ -88,6 +88,8 @@ body, html, div.ember-view {
 
 #hopper {
     @extend .full-height;
+    width: 1024px;
+    float: left;
 }
 
 .hopper-col {
@@ -110,7 +112,7 @@ body, html, div.ember-view {
             float: left;
             input, h1 {
                 margin-top: 0.5em;
-                font-size: 230%;
+                font-size: 200%;
                 cursor: pointer;
             }
             input {
@@ -170,7 +172,7 @@ body, html, div.ember-view {
         list-style-type: none;
         margin-left: 0;
         li {
-            font-size: 135%;
+            font-size: 100%;
             //border-bottom: $solid-black-border;
             padding: 0.5em 0 0.5em 1em;
             cursor: pointer;
@@ -187,6 +189,9 @@ body, html, div.ember-view {
     padding: 1em;
     input {
         margin-bottom: 0;
+    }
+    h2 {
+        font-size: 135%;
     }
 }
 
