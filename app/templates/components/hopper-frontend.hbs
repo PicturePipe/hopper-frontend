@@ -1,7 +1,22 @@
 <div id="hopper" class="row">
 
+    <div id="hopper-element-drawer"
+            class="hopper-col columns {{if isElementDrawerOpen 'medium-3' 'medium-1'}}">
+        <div class="hopper-element-drawer">
+            <div class="available-fields {{if isElementDrawerOpen 'open'}}">
+                {{ element-drawer addFormElement='addFormElement'}}
+            </div>
+            <div class="element-drawer-control" {{action "toggleIsElementDrawerOpen" on="click"}}
+                    id="elementDrawer">
+                <i id="toggl-element-drawer-icon"
+                    class="fa hopper-col-last {{if isElementDrawerOpen 'fa-caret-left' 'fa-caret-right'}}">
+                </i>
+            </div>
+        </div>
+    </div>
+
     <div id="hopper-first-col"
-            class="hopper-col columns {{if isElementDrawerOpen 'medium-13' 'medium-15'}}">
+            class="hopper-col columns hopper-col-last {{if isElementDrawerOpen 'medium-13' 'medium-15'}}">
         <div class="hopper-content">
             <div class="hopper-meta">
                 <div class="form-title" id="formTitle">
@@ -46,20 +61,6 @@
         </div>
     </div>
 
-    <div id="hopper-element-drawer"
-            class="hopper-col columns hopper-col-last {{if isElementDrawerOpen 'medium-3' 'medium-1'}}">
-        <div class="hopper-element-drawer">
-            <div class="available-fields {{if isElementDrawerOpen 'open'}}">
-                {{ element-drawer addFormElement='addFormElement'}}
-            </div>
-            <div class="element-drawer-control" {{action "toggleIsElementDrawerOpen" on="click"}}
-                    id="elementDrawer">
-                <i id="toggl-element-drawer-icon"
-                    class="fa hopper-col-last {{if isElementDrawerOpen 'fa-caret-right' 'fa-caret-left'}}">
-                </i>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div id="hopperOutletHelper"></div>

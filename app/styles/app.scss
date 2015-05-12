@@ -136,16 +136,16 @@ body, html, div.ember-view {
 
 .hopper-element-drawer {
     @extend .full-height;
-    float: right;
+    float: left;
     width: 100%;
     .element-drawer-control {
         @extend .full-height;
         @extend .border-top-bottom;
-        border-left: $solid-black-border;
+        border-right: $solid-black-border;
         width: $element-drawer-width;
         text-align: center;
         font-size: 300%;
-        float: right;
+        float: left;
         cursor: pointer;
         background-color: $hopper-color-darkblue;
         color: white;
@@ -153,11 +153,11 @@ body, html, div.ember-view {
     .available-fields {
         @extend .full-height;
         @include transition-mixin(width, 0.2s, ease, 0s);
-        float: right;
+        float: left;
         width: 0px;
-        border-left: $solid-black-border;
+        border-right: $solid-black-border;
         overflow-y: auto;
-        background-color: white;
+        background-color: $hopper-color-darkblue;
     }
     .available-fields.open {
         width: calc(100% - #{$element-drawer-width});
@@ -175,7 +175,6 @@ body, html, div.ember-view {
             padding: 0.5em 0 0.5em 1em;
             cursor: pointer;
             color: white;
-            background-color: $hopper-color-darkblue;
         }
         li:hover {
             background-color: $hopper-color-blue;
