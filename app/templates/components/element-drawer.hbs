@@ -1,7 +1,7 @@
 <ul>
     {{#each field in fields}}
     <li {{action "addFormElement" field on="click"}}>
-        <i class="fa fa-angle-double-left"></i> {{ field }}
+        {{ field }}
     </li>
     {{/each}}
 </ul>
