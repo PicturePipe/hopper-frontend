@@ -171,12 +171,14 @@ body, html, div.ember-view {
         margin-left: 0;
         li {
             font-size: 135%;
-            border-bottom: $solid-black-border;
+            //border-bottom: $solid-black-border;
             padding: 0.5em 0 0.5em 1em;
             cursor: pointer;
+            color: white;
+            background-color: $hopper-color-darkblue;
         }
         li:hover {
-            background-color: $hopper-light-gray;
+            background-color: $hopper-color-blue;
         }
     }
 }
