@@ -19,6 +19,27 @@
             class="hopper-col columns hopper-col-last {{if isElementDrawerOpen 'medium-13' 'medium-15'}}">
         <div class="hopper-content">
             <div class="hopper-meta">
+                <div class="row">
+                    <div class="form-meta-toggl">
+                        {{#link-to "fields" activeClass="active" class="small button"}}
+                            Fields
+                        {{/link-to}}
+                        {{#link-to "form" activeClass="active" class="small button"}}
+                            Form
+                        {{/link-to}}
+                    </div>
+                    <div class="form-control">
+                        <a href="#" class="button small success">
+                            Save
+                        </a>
+                        <a href="#" class="button small alert">
+                            Cancel
+                        </a>
+                        <a {{action "startHelp" on="click" }} class="button small" id="helpButton">
+                            Help
+                        </a>
+                    </div>
+                </div>
                 <div class="form-title" id="formTitle">
                     {{#if isTitleBeingEdited}}
                         {{edit-title-input
@@ -28,31 +49,6 @@
                     {{else}}
                         <h1 {{action "editTitle" on="doubleClick"}}>{{ form.title }}</h1>
                     {{/if}}
-                </div>
-                <div class="form-meta-toggl">
-                    <ul class="button-group" id="routeList">
-                        <li>
-                            {{#link-to "fields" activeClass="active" class="small button"}}
-                                Fields
-                            {{/link-to}}
-                        </li>
-                        <li>
-                            {{#link-to "form" activeClass="active" class="small button"}}
-                                Form
-                            {{/link-to}}
-                        </li>
-                    </ul>
-                </div>
-                <div class="form-control">
-                    <a href="#" class="button small success">
-                        Save
-                    </a>
-                    <a href="#" class="button small alert">
-                        Cancel
-                    </a>
-                    <a {{action "startHelp" on="click" }} class="button small" id="helpButton">
-                        Help
-                    </a>
                 </div>
             </div>
             <div class="hopper-outlet">

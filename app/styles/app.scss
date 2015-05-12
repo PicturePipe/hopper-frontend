@@ -24,7 +24,7 @@ $button-bg-hover: $hopper-color-darkblue;
 $hopper-background-url: '/images/crossword.png';
 
 .button.active {
-    background-color: $hopper-color-darkblue!important;
+    background-color: $hopper-color-darkblue;
 }
 
 // mixins
@@ -107,29 +107,40 @@ body, html, div.ember-view {
     padding-right: 1em;
     .hopper-meta {
         height: $hopper-meta-height;
-        border-bottom: 1px solid $hopper-light-gray;
         .form-title {
+            width: 100%;
             float: left;
+            border-bottom: 1px solid $hopper-light-gray;
+            margin-bottom: 1em;
             input, h1 {
                 margin-top: 0.5em;
-                font-size: 200%;
                 cursor: pointer;
+                margin-top: 0;
+            }
+            h1 {
+                font-size: 200%;
             }
             input {
-                height: 60px;
+                height: 40px;
+                font-size: 150%;
             }
         }
         .form-meta-toggl {
             float: left;
             margin: 1.5em;
+            .button {
+                margin-right: 0.3em;
+            }
         }
         .form-control {
             float: right;
             margin: 1.5em;
         }
+        .form-meta-toggl, .form-control {
+            margin-bottom: 0;
+        }
     }
     .hopper-outlet {
-        margin-top: 1.5em;
         clear: both;
         overflow-y: auto;
         height: calc(100% - 1.5em - #{$hopper-meta-height})
@@ -264,10 +275,6 @@ body, html, div.ember-view {
 
 .immutable {
     background-color: $hopper-light-green;
-}
-
-.button.active {
-    background-color: #007095;
 }
 
 .sub-elements {
