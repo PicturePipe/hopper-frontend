@@ -20,6 +20,21 @@ export default Ember.Route.extend({
         'hidden': 'Hiddenfield',
     },
 
+    setupController: function(controller, model) {
+        Ember.$(window).on('beforeunload', function (e) {
+            e = e || window.event;
+
+            // For IE and Firefox prior to version 4
+            if (e) {
+                e.returnValue = 'Sure?';
+            }
+
+            // For Safari
+            return 'Sure?';
+        });
+        controller.set('model', model);
+    },
+
     createFormElements: function(parent, elements) {
         var self = this;
         for (var element in elements) {
