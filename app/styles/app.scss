@@ -223,7 +223,7 @@ body, html, div.ember-view {
 }
 
 .field, .fieldset, .meta-form {
-    @include border-radius-mixin(10px);
+    //@include border-radius-mixin(10px);
     border: $solid-black-border;
     label {
         float: left;
