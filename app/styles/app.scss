@@ -1,6 +1,6 @@
 // variable definitions
 $element-drawer-width: 50px;
-$hopper-meta-height: 100px;
+$hopper-meta-height: 162px;
 $solid-black-border: 1px solid #000000;
 
 $hopper-light-gray: #E6E6E6;
@@ -143,7 +143,7 @@ body, html, div.ember-view {
     .hopper-outlet {
         clear: both;
         overflow-y: auto;
-        height: calc(100% - 1.5em - #{$hopper-meta-height})
+        height: calc(100% - #{$hopper-meta-height})
     }
 }
 
