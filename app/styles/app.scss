@@ -196,8 +196,8 @@ body, html, div.ember-view {
 }
 
 .field, .fieldset {
-    margin-bottom: 1em;
-    padding: 1em;
+    margin-bottom: 0.7em;
+    padding: 0.7em;
     input {
         margin-bottom: 0;
     }
@@ -208,8 +208,7 @@ body, html, div.ember-view {
 
 .field {
     background-color: #FFFFFF;
-    min-height: 4.5em;
-    padding-top: 0.7em
+    min-height: 4em;
 }
 
 .meta-form {
@@ -240,10 +239,6 @@ body, html, div.ember-view {
     label.checkboxes {
         width: 100%;
     }
-}
-
-.field {
-    padding-top: 1em;
 }
 
 .field.edit {
