@@ -16,13 +16,34 @@ var FormElement = DS.Model.extend(FormElementsMixin, {
     default: DS.attr('string'),
     checked: DS.attr('boolean'),
 
+    elementTypeNames: {
+        'fieldset': 'Fieldset',
+        'input': 'Charfield',
+        'textarea': 'Textfield',
+        'select': 'Select',
+        'radio': 'Radiobuttons',
+        'multiselect': 'Multiselect',
+        'checkbox': 'Checkboxfield',
+        'date': 'Datefield',
+        'datetime': 'Datetimefield',
+        'file': 'Uploadfield',
+        'integer': 'Integerfield',
+        'mail': 'Mailfield',
+        'url': 'Urlfield',
+        'password': 'Passwordfield',
+        'hidden': 'Hiddenfield',
+    },
+
     name: function() {
         var name = '';
         if (typeof(this.get('label')) !== 'undefined') {
             name = this.get('label').toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
         }
         return name;
-    }.property('label')
+    }.property('label'),
+    getElementTypeDisplay: function() {
+        return this.elementTypeNames[this.get('elementType')];
+    }.property('elementType'),
 });
 
 FormElement.reopenClass({FIXTURES: []});
