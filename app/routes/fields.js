@@ -36,6 +36,7 @@ export default Ember.Route.extend({
                 required: formElementInfo['required'] || false,
                 immutable: formElementInfo['immutable'] || false,
                 checked: formElementInfo['checked'] || false,
+                multiple: formElementInfo['multiple'] || false,
             });
             parent.get('formElements').pushObject(formElement);
             if(typeof(formElementInfo.elements) !== 'undefined') {
