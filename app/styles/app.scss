@@ -192,7 +192,7 @@ body, html, div.ember-view {
         }
         li:hover {
             @include transition-mixin(color, 0.2s, ease, 0s);
-            color: $hopper-color-blue;
+            color: $hopper-color-lightblue;
         }
     }
 }
