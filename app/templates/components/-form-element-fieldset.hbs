@@ -1,5 +1,8 @@
 {{#if isEditing}}
 <div class="field fieldset edit" data-id={{ formElement.id }}>
+    <div class="row">
+        <h3>{{ formElement.getElementTypeDisplay }}</h3>
+    </div>
     {{#if isLabelEmpty}}
     <div class="row">
         <strong>Please insert at least a label.</strong>
