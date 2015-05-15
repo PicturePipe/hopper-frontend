@@ -7,7 +7,6 @@ export default Ember.Component.extend({
         {title: 'Textfield', field_name: 'textarea'},
         {title: 'Select', field_name: 'select'},
         {title: 'Radiobuttons', field_name: 'radio'},
-        {title: 'Multiselect', field_name: 'multiselect'},
         {title: 'Checkboxfield', field_name: 'checkbox'},
         {title: 'Datefield', field_name: 'date'},
         {title: 'Datetimefield', field_name: 'datetime'},
