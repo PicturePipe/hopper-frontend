@@ -143,6 +143,7 @@ body, html, div.ember-view {
     .hopper-outlet {
         clear: both;
         overflow-y: auto;
+        overflow-x: hidden;
         height: calc(100% - #{$hopper-meta-height})
     }
 }
