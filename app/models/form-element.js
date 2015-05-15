@@ -15,6 +15,7 @@ var FormElement = DS.Model.extend(FormElementsMixin, {
     maxlength: DS.attr('number'),
     default: DS.attr('string'),
     checked: DS.attr('boolean'),
+    multiple: DS.attr('boolean'),
 
     elementTypeNames: {
         'fieldset': 'Fieldset',
@@ -22,7 +23,6 @@ var FormElement = DS.Model.extend(FormElementsMixin, {
         'textarea': 'Textfield',
         'select': 'Select',
         'radio': 'Radiobuttons',
-        'multiselect': 'Multiselect',
         'checkbox': 'Checkboxfield',
         'date': 'Datefield',
         'datetime': 'Datetimefield',
