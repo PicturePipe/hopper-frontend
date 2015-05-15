@@ -24,10 +24,10 @@ test('addFormElement action', function(assert) {
   // make sure, the component bubbles up the addFormElement action to the next
   // component
   assert.expect(2);
-  var fieldname = 'Fieldname';
+  var fieldname = {field_name: 'Fieldname'};
   var sendActionStub = function(actionName, args) {
     assert.equal(actionName, 'addFormElement');
-    assert.equal(args, fieldname);
+    assert.equal(args, fieldname.field_name);
   };
 
   var component = this.subject();
