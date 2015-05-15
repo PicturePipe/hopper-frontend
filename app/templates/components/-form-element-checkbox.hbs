@@ -26,9 +26,9 @@
     {{ partial "components/-form-element-save-row" }}
 </div>
 {{else}}
-<div {{bind-attr class=":field formElement.immutable:immutable" }} data-id={{ formElement.id }}
+<div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}
         {{action "togglIsEditing" on="doubleClick"}}>
-    <label>{{ formElement.label }}{{#if formElement.required}}*{{/if}}:</label>
+    <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
     <span>
         {{#each fieldValue in valuesAsList }}
             <label class="checkboxes">
