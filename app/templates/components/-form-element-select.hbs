@@ -26,6 +26,9 @@
     <div class="row">
         <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
     </div>
+    <div class="row">
+        <label>Multiple:</label> <span>{{input type="checkbox" checked=formElement.multiple}}</span>
+    </div>
     {{ partial "components/-form-element-save-row" }}
 </div>
 {{else}}
@@ -33,7 +36,7 @@
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
     <span>
-        {{view "select" content=valuesAsList disabled=true}}
+        {{view "select" multiple=formElement.multiple  content=valuesAsList disabled=true}}
     </span>
 </div>
 {{/if}}
