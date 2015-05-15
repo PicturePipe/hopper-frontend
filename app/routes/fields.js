@@ -2,24 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-    possibleTypes: {
-        'fieldset': 'Fieldset',
-        'input': 'Charfield',
-        'textarea': 'Textfield',
-        'select': 'Select',
-        'radio': 'Radiobuttons',
-        'multiselect': 'Multiselect',
-        'checkbox': 'Checkboxfield',
-        'date': 'Datefield',
-        'datetime': 'Datetimefield',
-        'file': 'Uploadfield',
-        'integer': 'Integerfield',
-        'mail': 'Mailfield',
-        'url': 'Urlfield',
-        'password': 'Passwordfield',
-        'hidden': 'Hiddenfield',
-    },
-
     setupController: function(controller, model) {
         Ember.$(window).on('beforeunload', function (e) {
             e = e || window.event;
@@ -45,7 +27,7 @@ export default Ember.Route.extend({
             }
             var formElement = self.store.createRecord('formElement', {
                 label: formElementInfo['label'],
-                elementType: self.possibleTypes[formElementInfo['type']],
+                elementType: formElementInfo['type'],
                 weight: formElementInfo['weight'],
                 placeholder: formElementInfo['placeholder'],
                 values: values,
