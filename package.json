@@ -16,10 +16,10 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-   "author": "",
-   "license": "MIT",
-   "devDependencies": {
-     "broccoli-asset-rev": "^2.0.2",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.0.2",
     "broccoli-static-compiler": "0.2.1",
     "ember-cli": "0.2.3",
     "ember-cli-app-version": "0.3.3",
@@ -41,5 +41,8 @@
     "node-sass": "2.0.1",
     "phantomjs": "1.9.16",
     "requirejs": "^2.1.16"
-   }
- }
+  },
+  "dependencies": {
+    "codecov.io": "^0.1.2"
+  }
+}
