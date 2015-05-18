@@ -11,7 +11,7 @@ install:
   - npm install
   - bower install
 script:
-  - npm test
+  - npm test && cat ./lcov.dat | node_modules/.bin/codecov
 notifications:
   slack:
     secure: CSRdKbRAxcrnnGdV785gNpvjLEqHkar9XxDdbzKXD1CnyiXJJeRdvFN78jdd9lB54DzpBkegMCayfSn9HyMLQ01JF9oalDF2qUJNkHbS/58IAPZMwnhNpGAk5HZ7da64P3QDvRqqTFW+2nyaYiQcjjUex7L/1CBPDXmkoxi+LCQ=
