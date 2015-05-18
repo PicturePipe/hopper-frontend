@@ -69,11 +69,6 @@ body, html, div.ember-view {
     @extend .full-height;
 }
 
-.border-top-bottom {
-    border-top: $solid-black-border;
-    border-bottom: $solid-black-border;
-}
-
 // Changes & custom css
 .columns {
     padding-left: 0;
@@ -154,7 +149,6 @@ body, html, div.ember-view {
     width: 100%;
     .element-drawer-control {
         @extend .full-height;
-        @extend .border-top-bottom;
         border-right: $solid-black-border;
         width: $element-drawer-width;
         text-align: center;
@@ -178,7 +172,6 @@ body, html, div.ember-view {
 }
 
 .available-fields {
-    @extend .border-top-bottom;
     ul {
         list-style-type: none;
         margin-left: 0;
