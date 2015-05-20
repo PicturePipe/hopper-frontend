@@ -1,12 +1,21 @@
 {{#if isEditing}}
 <div class="field edit" data-id={{ formElement.id }}>
+    <div class="row">
+        <h3>{{ formElement.getElementTypeDisplay }}</h3>
+    </div>
     {{#if isLabelEmpty}}
     <div class="row">
         <strong>Please insert at least a label.</strong>
     </div>
     {{/if}}
     <div class="row">
-        <label>Label:</label> <span>{{input value=formElement.label}}</span>
+        <label>Label:</label> <span>{{input value=formElement.label }}</span>
+    </div>
+    <div class="row">
+        <label>Description:</label> <span>{{input value=formElement.description }}</span>
+    </div>
+    <div class="row">
+        <label>Values:</label> <span>{{textarea rows=5 value=formElement.values }}</span>
     </div>
     <div class="row">
         <label>Required:</label> <span>{{input type="checkbox" checked=formElement.required}}</span>
@@ -14,19 +23,18 @@
     <div class="row">
         <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
     </div>
-    <div class="row save-row">
-        <a {{ action "removeElement" on="click"}}>
-            <i class="fa fa-times-circle"></i>
-        </a>
-        <a {{ action "togglIsEditing" on="click"}}>
-            <i class="fa fa-check-circle"></i>
-        </a>
-    </div>
+    {{ partial "components/-form-element-save-row" }}
 </div>
 {{else}}
 <div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
-    <span><input type="file" name="{{ formElement.name }}" disabled></span>
+    <span>
+        {{#each fieldValue in valuesAsList }}
+            <label class="checkboxes">
+                <input type="checkbox" disabled {{attr-bind name=formElement.name value=fieldValue}}> {{ fieldValue }}
+            </label>
+        {{/each}}
+    </span>
 </div>
 {{/if}}

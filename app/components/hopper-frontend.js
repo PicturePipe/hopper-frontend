@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    isElementDrawerOpen: false,
+    isElementDrawerOpen: true,
     isTitleBeingEdited: false,
 
     didInsertElement: function() {
@@ -30,7 +30,6 @@ export default Ember.Component.extend({
             this.get('form').get('formElements').addObject(newElement);
         },
         startHelp: function() {
-            this.set('isElementDrawerOpen', false);
             Ember.$(document).foundation('joyride', 'start');
             if(this.get('currentController').currentRouteName !== 'fields') {
                 this.get('currentController').transitionToRoute('fields');

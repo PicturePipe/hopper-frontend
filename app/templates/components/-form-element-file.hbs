@@ -1,24 +1,15 @@
 {{#if isEditing}}
 <div class="field edit" data-id={{ formElement.id }}>
+    <div class="row">
+        <h3>{{ formElement.getElementTypeDisplay }}</h3>
+    </div>
     {{#if isLabelEmpty}}
     <div class="row">
         <strong>Please insert at least a label.</strong>
     </div>
     {{/if}}
     <div class="row">
-        <label>Label:</label> <span>{{input value=formElement.label }}</span>
-    </div>
-    <div class="row">
-        <label>Placeholder:</label> <span>{{input value=formElement.placeholder }}</span>
-    </div>
-    <div class="row">
-        <label>Description:</label> <span>{{input value=formElement.description }}</span>
-    </div>
-    <div class="row">
-        <label>Maxlength:</label> <span>{{input value=formElement.maxlength }}</span>
-    </div>
-    <div class="row">
-        <label>Default:</label> <span>{{input value=formElement.default }}</span>
+        <label>Label:</label> <span>{{input value=formElement.label}}</span>
     </div>
     <div class="row">
         <label>Required:</label> <span>{{input type="checkbox" checked=formElement.required}}</span>
@@ -36,16 +27,9 @@
     </div>
 </div>
 {{else}}
-<div class="field {{if formElement.immutable 'immutable' }}" data-id={{ formElement.id }}
+<div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
-    <span>
-        {{input
-            disabled=true
-            name=formElement.name
-            placeholder=formElement.placeholder
-            maxlength=formElement.maxlength
-            value=formElement.default}}
-    </span>
+    <span><input type="file" name="{{ formElement.name }}" disabled></span>
 </div>
 {{/if}}

@@ -1,16 +1,33 @@
+// variable definitions
+$element-drawer-width: 50px;
+$hopper-meta-height: 162px;
+$solid-black-border: 1px solid #000000;
+
+$hopper-light-gray: #E6E6E6;
+$hopper-light-green: #CBE8BA;
+
+$hopper-color-blue: #2570A3; //blue
+$hopper-color-darkblue: #486070; //darkblue
+$hopper-color-red: #A32625; //red
+$hopper-color-orange: #DB4F35; //orange
+$hopper-color-lightblue: #46D6C4; //lightblue
+
 // variable overridings
 $fa-font-path: "fontawesome/fonts";
 $row-width: 100%;
 $total-columns: 16;
 
-// variable definitions
-$element-drawer-width: 50px;
-$hopper-meta-height: 100px;
-$solid-black-border: 2px solid #000000;
-$hopper-light-gray: #E6E6E6;
-$hopper-light-green: #CBE8BA;
-// mixins
+$button-bg-color: $hopper-color-blue;
+$button-bg-hover: $hopper-color-darkblue;
 
+/* Background pattern from subtlepatterns.com */
+$hopper-background-url: '/images/crossword.png';
+
+.button.active {
+    background-color: $hopper-color-darkblue;
+}
+
+// mixins
 @mixin border-radius-mixin($radius) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
@@ -33,7 +50,13 @@ $hopper-light-green: #CBE8BA;
 @import "bower_components/foundation/scss/foundation.scss";
 @import "bower_components/fontawesome/scss/font-awesome.scss";
 
-// Basic classes
+
+
+// Basic classes & styles
+body {
+    background: url($hopper-background-url);
+}
+
 .full-height {
     height: 100%;
 }
@@ -46,11 +69,6 @@ body, html, div.ember-view {
     @extend .full-height;
 }
 
-.border-top-bottom {
-    border-top: $solid-black-border;
-    border-bottom: $solid-black-border;
-}
-
 // Changes & custom css
 .columns {
     padding-left: 0;
@@ -59,12 +77,14 @@ body, html, div.ember-view {
 
 #hopperOutletHelper {
     position: absolute;
-    left: 5%;
-    top: 30%;
+    left: 25%;
+    top: 35%;
 }
 
 #hopper {
     @extend .full-height;
+    width: 1024px;
+    float: left;
 }
 
 .hopper-col {
@@ -82,56 +102,69 @@ body, html, div.ember-view {
     padding-right: 1em;
     .hopper-meta {
         height: $hopper-meta-height;
-        border-bottom: 1px solid $hopper-light-gray;
         .form-title {
+            width: 100%;
             float: left;
+            border-bottom: 1px solid $hopper-light-gray;
+            margin-bottom: 1em;
             input, h1 {
                 margin-top: 0.5em;
-                font-size: 230%;
                 cursor: pointer;
+                margin-top: 0;
+            }
+            h1 {
+                font-size: 200%;
             }
             input {
-                height: 60px;
+                height: 40px;
+                font-size: 150%;
             }
         }
         .form-meta-toggl {
             float: left;
             margin: 1.5em;
+            .button {
+                margin-right: 0.3em;
+            }
         }
         .form-control {
             float: right;
             margin: 1.5em;
         }
+        .form-meta-toggl, .form-control {
+            margin-bottom: 0;
+        }
     }
     .hopper-outlet {
-        margin-top: 1.5em;
         clear: both;
         overflow-y: auto;
-        height: calc(100% - 1.5em - #{$hopper-meta-height})
+        overflow-x: hidden;
+        height: calc(100% - #{$hopper-meta-height})
     }
 }
 
 .hopper-element-drawer {
     @extend .full-height;
-    float: right;
+    float: left;
     width: 100%;
     .element-drawer-control {
         @extend .full-height;
-        @extend .border-top-bottom;
-        border-left: $solid-black-border;
+        border-right: $solid-black-border;
         width: $element-drawer-width;
         text-align: center;
         font-size: 300%;
-        float: right;
+        float: left;
         cursor: pointer;
+        background-color: $hopper-color-darkblue;
+        color: white;
     }
     .available-fields {
         @extend .full-height;
         @include transition-mixin(width, 0.2s, ease, 0s);
-        float: right;
+        float: left;
         width: 0px;
-        border-left: $solid-black-border;
         overflow-y: auto;
+        background-color: $hopper-color-darkblue;
     }
     .available-fields.open {
         width: calc(100% - #{$element-drawer-width});
@@ -139,34 +172,38 @@ body, html, div.ember-view {
 }
 
 .available-fields {
-    @extend .border-top-bottom;
     ul {
         list-style-type: none;
         margin-left: 0;
         li {
-            font-size: 135%;
-            border-bottom: $solid-black-border;
+            @include transition-mixin(color, 0.2s, ease, 0s);
+            font-size: 100%;
+            //border-bottom: $solid-black-border;
             padding: 0.5em 0 0.5em 1em;
-            cursor: move;
+            cursor: pointer;
+            color: white;
         }
         li:hover {
-            background-color: $hopper-light-gray;
+            @include transition-mixin(color, 0.2s, ease, 0s);
+            color: $hopper-color-lightblue;
         }
     }
 }
 
 .field, .fieldset {
-    margin-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: 1em;
+    margin-bottom: 0.7em;
+    padding: 0.7em;
     input {
         margin-bottom: 0;
+    }
+    h2 {
+        font-size: 135%;
     }
 }
 
 .field {
     background-color: #FFFFFF;
+    min-height: 4em;
 }
 
 .meta-form {
@@ -174,13 +211,14 @@ body, html, div.ember-view {
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 2em;
+    background-color: white;
     .columns {
         padding-left: 1em;
     }
 }
 
 .field, .fieldset, .meta-form {
-    @include border-radius-mixin(10px);
+    //@include border-radius-mixin(10px);
     border: $solid-black-border;
     label {
         float: left;
@@ -196,10 +234,6 @@ body, html, div.ember-view {
     label.checkboxes {
         width: 100%;
     }
-}
-
-.field {
-    padding-top: 1em;
 }
 
 .field.edit {
@@ -231,10 +265,6 @@ body, html, div.ember-view {
 
 .immutable {
     background-color: $hopper-light-green;
-}
-
-.button.active {
-    background-color: #007095;
 }
 
 .sub-elements {
