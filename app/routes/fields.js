@@ -62,15 +62,16 @@ export default Ember.Route.extend({
                 }
             }
         }).done(function (data) {
+            var formData = data.form;
             var form = self.store.createRecord('form', {
-                'method': data.method,
-                'action': data.action,
-                'enctype': data.enctype,
-                'title': data.title,
-                'formClasses': data.css_classes,
-                'fieldClasses': data.elements_css_classes
+                'method': formData.method,
+                'action': formData.action,
+                'enctype': formData.enctype,
+                'title': formData.title,
+                'formClasses': formData.css_classes,
+                'fieldClasses': formData.elements_css_classes
             });
-            self.createFormElements(form, data.elements);
+            self.createFormElements(form, formData.elements);
             self.refresh();
         });
     },
