@@ -31,7 +31,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.HOPPER_DATA_URL = 'http://jsonstub.com/form/2';
+    ENV.APP.HOPPER_DATA_URL = 'http://jsonstub.com/form/1';
     ENV.APP.HOPPER_EXTRA_HEADERS = {
       'JsonStub-User-Key': 'ad5cc745-2f67-45eb-8446-1daf590de52e',
       'JsonStub-Project-Key': '1aa2304f-202c-416a-b2de-24312e4a3c46',
