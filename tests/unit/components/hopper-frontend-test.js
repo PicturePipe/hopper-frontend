@@ -246,17 +246,6 @@ test('extractFormElementInfo', function(assert) {
   assert.equal(extractedInformation2.elements.test2.label, 'Test2');
 });
 
-test('startHelp action closing element-drawer', function(assert) {
-  assert.expect(2);
-  var component = this.subject();
-  component.set('currentController', fakeController());
-  component.set('isElementDrawerOpen', true);
-  assert.equal(component.get('isElementDrawerOpen'), true);
-
-  component.send('startHelp');
-  assert.equal(component.get('isElementDrawerOpen'), false);
-});
-
 test('startHelp action transition to route', function(assert) {
   assert.expect(2);
   var component = this.subject();
