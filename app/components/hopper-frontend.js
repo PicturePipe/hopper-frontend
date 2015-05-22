@@ -111,10 +111,11 @@ export default Ember.Component.extend({
                     }
                     var app = self.container.lookup('application:main');
                     Ember.$.ajax({
-                        type: 'POST',
+                        type: 'PUT',
                         contentType: 'application/json',
+                        dataType: 'json',
                         url: app.HOPPER_DATA_URL,
-                        data: formData,
+                        data: JSON.stringify(formData),
                         beforeSend: function (request) {
                             for (var heading in app.HOPPER_EXTRA_HEADERS) {
                                 request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
@@ -124,6 +125,7 @@ export default Ember.Component.extend({
                         Ember.$('#saveModal').foundation('reveal', 'open');
                     }).fail(function (error) {
                         console.error('Something went wrong!');
+                        console.log(error);
                         console.error(error.status + ': ' + error.statusText);
                     });
                 }
