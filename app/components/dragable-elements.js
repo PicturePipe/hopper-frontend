@@ -16,6 +16,7 @@ export default Ember.Component.extend({
                 if (ui.item.find('.field').hasClass('fieldset') &&
                         ui.item.parents().eq(2).hasClass('fieldset')) {
                     hopperOutlet.find('.sub-elements').sortable('cancel');
+                    Ember.$('#fieldsetWarning').foundation('reveal', 'open');
                 }
                 var order = {};
                 Ember.$('.field').each(function(index) {

@@ -76,13 +76,13 @@ test('toggleIsElementDrawerOpen action', function(assert) {
 
   // create component instance
   var component = this.subject();
-  assert.equal(component.isElementDrawerOpen, false);
-
-  component.send('toggleIsElementDrawerOpen');
   assert.equal(component.isElementDrawerOpen, true);
 
   component.send('toggleIsElementDrawerOpen');
   assert.equal(component.isElementDrawerOpen, false);
+
+  component.send('toggleIsElementDrawerOpen');
+  assert.equal(component.isElementDrawerOpen, true);
 });
 
 test('editTitle action', function(assert) {
@@ -132,15 +132,15 @@ test('css change #hopper-element-drawer after toggleIsElementDrawerOpen', functi
   var $component = component.$();
 
   // assert default state
-  assert.ok($component.find('#hopper-element-drawer').hasClass('medium-1'));
-  assert.ok(!$component.find('#hopper-element-drawer').hasClass('medium-3'));
+  assert.ok(!$component.find('#hopper-element-drawer').hasClass('medium-1'));
+  assert.ok($component.find('#hopper-element-drawer').hasClass('medium-3'));
 
   // click element-drawer-control
   $component.find('.element-drawer-control').click();
 
   // assert switched state
-  assert.ok(!$component.find('#hopper-element-drawer').hasClass('medium-1'));
-  assert.ok($component.find('#hopper-element-drawer').hasClass('medium-3'));
+  assert.ok($component.find('#hopper-element-drawer').hasClass('medium-1'));
+  assert.ok(!$component.find('#hopper-element-drawer').hasClass('medium-3'));
 });
 
 test('css change #hopper-first-col after toggleIsElementDrawerOpen', function(assert) {
@@ -154,15 +154,15 @@ test('css change #hopper-first-col after toggleIsElementDrawerOpen', function(as
   var $component = component.$();
 
   // assert default state
-  assert.ok($component.find('#hopper-first-col').hasClass('medium-15'));
-  assert.ok(!$component.find('#hopper-first-col').hasClass('medium-13'));
+  assert.ok(!$component.find('#hopper-first-col').hasClass('medium-15'));
+  assert.ok($component.find('#hopper-first-col').hasClass('medium-13'));
 
   // click element-drawer-control
   $component.find('.element-drawer-control').click();
 
   // assert switched state
-  assert.ok(!$component.find('#hopper-first-col').hasClass('medium-15'));
-  assert.ok($component.find('#hopper-first-col').hasClass('medium-13'));
+  assert.ok($component.find('#hopper-first-col').hasClass('medium-15'));
+  assert.ok(!$component.find('#hopper-first-col').hasClass('medium-13'));
 });
 
 test('css change #toggl-element-drawer-icon after toggleIsElementDrawerOpen', function(assert) {
@@ -197,13 +197,13 @@ test('css change .available-fields after toggleIsElementDrawerOpen', function(as
   var $component = component.$();
 
   // assert default state
-  assert.ok(!$component.find('.available-fields').hasClass('open'));
+  assert.ok($component.find('.available-fields').hasClass('open'));
 
   // click element-drawer-control
   $component.find('.element-drawer-control').click();
 
   // assert switched state
-  assert.ok($component.find('.available-fields').hasClass('open'));
+  assert.ok(!$component.find('.available-fields').hasClass('open'));
 });
 
 test('add and remove input', function(assert) {

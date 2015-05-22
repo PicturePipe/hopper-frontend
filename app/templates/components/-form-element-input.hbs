@@ -1,5 +1,8 @@
 {{#if isEditing}}
 <div class="field edit" data-id={{ formElement.id }}>
+    <div class="row">
+        <h3>{{ formElement.getElementTypeDisplay }}</h3>
+    </div>
     {{#if isLabelEmpty}}
     <div class="row">
         <strong>Please insert at least a label.</strong>
@@ -9,10 +12,16 @@
         <label>Label:</label> <span>{{input value=formElement.label }}</span>
     </div>
     <div class="row">
+        <label>Placeholder:</label> <span>{{input value=formElement.placeholder }}</span>
+    </div>
+    <div class="row">
         <label>Description:</label> <span>{{input value=formElement.description }}</span>
     </div>
     <div class="row">
-        <label>Values:</label> <span>{{textarea rows=5 value=formElement.values }}</span>
+        <label>Maxlength:</label> <span>{{input value=formElement.maxlength }}</span>
+    </div>
+    <div class="row">
+        <label>Default:</label> <span>{{input value=formElement.default }}</span>
     </div>
     <div class="row">
         <label>Required:</label> <span>{{input type="checkbox" checked=formElement.required}}</span>
@@ -20,21 +29,19 @@
     <div class="row">
         <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
     </div>
-    <div class="row save-row">
-        <a {{ action "removeElement" on="click"}}>
-            <i class="fa fa-times-circle"></i>
-        </a>
-        <a {{ action "togglIsEditing" on="click"}}>
-            <i class="fa fa-check-circle"></i>
-        </a>
-    </div>
+    {{ partial "components/-form-element-save-row" }}
 </div>
 {{else}}
-<div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}
+<div class="field {{if formElement.immutable 'immutable' }}" data-id={{ formElement.id }}
         {{action "togglIsEditing" on="doubleClick"}}>
     <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
     <span>
-        {{view "select" multiple="true" content=valuesAsList disabled=true}}
+        {{input
+            disabled=true
+            name=formElement.name
+            placeholder=formElement.placeholder
+            maxlength=formElement.maxlength
+            value=formElement.default}}
     </span>
 </div>
 {{/if}}

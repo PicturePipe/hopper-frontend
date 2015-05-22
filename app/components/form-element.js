@@ -8,7 +8,7 @@ export default Ember.Component.extend({
     // Set the default templateName to 'charfield', because during loading
     // time, the formElement is not accessible and all of its attributes
     // are 'undefined'.
-    var templateName = 'charfield';
+    var templateName = 'input';
     if (typeof(this.get('formElement.elementType')) !== 'undefined') {
       templateName = this.get('formElement.elementType').toLowerCase();
     }
