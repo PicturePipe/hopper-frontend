@@ -4,24 +4,6 @@ export default Ember.Component.extend({
     isElementDrawerOpen: true,
     isTitleBeingEdited: false,
 
-    fieldTypesReverse: {
-        'Fieldset': 'fieldset',
-        'Charfield': 'input',
-        'Textfield': 'textarea',
-        'Select': 'select',
-        'Radiobuttons': 'radio',
-        'Multiselect': 'multiselect',
-        'Checkboxfield': 'checkbox',
-        'Datefield': 'date',
-        'Datetimefield': 'datetime',
-        'Uploadfield': 'file',
-        'Integerfield': 'integer',
-        'Mailfield': 'mail',
-        'Urlfield': 'url',
-        'Passwordfield': 'password',
-        'Hiddenfield': 'hidden',
-    },
-
     didInsertElement: function() {
         this.set('store', this.get('targetObject.store'));
         this.set('form', this.store.find('form', 'fixture-0'));
@@ -31,7 +13,7 @@ export default Ember.Component.extend({
         var self = this;
         var choices = formElement.get('values') || '';
         var formElementInfo = {
-            'type': self.fieldTypesReverse[formElement.get('elementType')],
+            'type': formElement.get('elementType'),
             'label': formElement.get('label'),
             'placeholder': formElement.get('placeholder'),
             'weight': formElement.get('weight'),
@@ -44,18 +26,17 @@ export default Ember.Component.extend({
             'choices': choices.split('\n'),
             'elements': {}
         };
-        formElement.get('formElements').then(function(subFormElements) {
-            if (!isSubelement) {
-                var subFormElementsArray = subFormElements.toArray();
-                if (subFormElementsArray.get('length') > 0) {
-                    for (var i = 0; i < subFormElementsArray.get('length'); i++) {
-                        var subFormElement = subFormElementsArray[i];
-                        formElementInfo.elements[subFormElement.get('name')] = self.extractFormElementInfo(
-                            subFormElement, true);
-                    }
+        var subFormElements = formElement.get('formElements');
+        if (!isSubelement) {
+            var subFormElementsArray = subFormElements.toArray();
+            if (subFormElementsArray.get('length') > 0) {
+                for (var i = 0; i < subFormElementsArray.get('length'); i++) {
+                    var subFormElement = subFormElementsArray[i];
+                    formElementInfo.elements[subFormElement.get('name')] = self.extractFormElementInfo(
+                        subFormElement, true);
                 }
             }
-        });
+        }
         return formElementInfo;
     },
 
@@ -109,6 +90,8 @@ export default Ember.Component.extend({
                                 formElement, false);
                         }
                     }
+                    console.log(JSON.stringify(formData));
+                    console.log(formData);
                     var app = self.container.lookup('application:main');
                     Ember.$.ajax({
                         type: 'PUT',
@@ -125,7 +108,6 @@ export default Ember.Component.extend({
                         Ember.$('#saveModal').foundation('reveal', 'open');
                     }).fail(function (error) {
                         console.error('Something went wrong!');
-                        console.log(error);
                         console.error(error.status + ': ' + error.statusText);
                     });
                 }
