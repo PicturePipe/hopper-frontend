@@ -2,6 +2,7 @@ import {
   moduleForComponent,
   test
 } from 'ember-qunit';
+import Ember from 'ember';
 
 var findOrAllFake = function () {
   return {
@@ -32,6 +33,33 @@ var fakeController = function(route) {
     this.currentRouteName = route;
   };
   return obj;
+};
+
+var fakeObject = function () {
+  return {
+    _formElements: [],
+    _values: {length: 0},
+    get: function(key) {
+      if (key === 'formElements') {
+        return this;
+      } else {
+        return this._values[key];
+      }
+    },
+    set: function(key, value) {
+      this._values[key] = value;
+    },
+    push: function(obj) {
+      this._formElements.push(obj);
+      this._values.length++;
+    },
+    then: function(func) {
+      return func(this._formElements);
+    },
+    toArray: function() {
+      return this._formElements;
+    }
+  };
 };
 
 moduleForComponent('hopper-frontend', {
@@ -194,6 +222,28 @@ test('add and remove input', function(assert) {
 
   assert.ok(!$component.find('.form-title > h1').length);
   assert.ok($component.find('.form-title > input').length);
+});
+
+test('extractFormElementInfo', function(assert) {
+  assert.expect(4);
+  var component = this.subject();
+  var objectFake1 = new fakeObject();
+  objectFake1.set('label', 'Test');
+  objectFake1.set('name', 'test');
+
+  var objectFake2 = new fakeObject();
+  objectFake2.set('label', 'Test2');
+  objectFake2.set('name', 'test2');
+
+  objectFake1.push(objectFake2);
+
+  var extractedInformation = component.extractFormElementInfo(objectFake1, true);
+  assert.equal(extractedInformation.label, 'Test');
+  assert.equal(typeof(extractedInformation.elements['test2']), 'undefined');
+
+  var extractedInformation2 = component.extractFormElementInfo(objectFake1, false);
+  assert.equal(extractedInformation.label, 'Test');
+  assert.equal(extractedInformation2.elements.test2.label, 'Test2');
 });
 
 test('startHelp action transition to route', function(assert) {
