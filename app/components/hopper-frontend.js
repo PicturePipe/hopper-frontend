@@ -90,8 +90,6 @@ export default Ember.Component.extend({
                                 formElement, false);
                         }
                     }
-                    console.log(JSON.stringify(formData));
-                    console.log(formData);
                     var app = self.container.lookup('application:main');
                     Ember.$.ajax({
                         type: 'PUT',
