@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/transcode-de/hopper-frontend.svg)](https://travis-ci.org/transcode-de/hopper-frontend)
 [![codecov.io](https://img.shields.io/codecov/c/github/transcode-de/hopper-frontend.svg?branch=develop)](http://codecov.io/github/transcode-de/hopper-frontend?branch=develop)
-
 [![Dependencies](https://david-dm.org/transcode-de/hopper-frontend.svg)](https://david-dm.org/transcode-de/hopper-frontend)
 [![DevDependencies](https://david-dm.org/transcode-de/hopper-frontend/dev-status.svg)](https://david-dm.org/transcode-de/hopper-frontend#info=devDependencies)
 
