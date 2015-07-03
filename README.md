@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/transcode-de/hopper-frontend.svg)](https://travis-ci.org/transcode-de/hopper-frontend)
 [![codecov.io](http://codecov.io/github/transcode-de/hopper-frontend/coverage.svg?branch=develop)](http://codecov.io/github/transcode-de/hopper-frontend?branch=develop)
+[![Dependencies](https://david-dm.org/transcode-de/hopper-frontend.svg)](https://david-dm.org/transcode-de/hopper-frontend)
 
 Hopper-frontend is a JavaScript frontend for the Hopper API. It allows
 your users to easily create there own formulars.
