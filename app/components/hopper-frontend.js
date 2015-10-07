@@ -1,3 +1,5 @@
+/* jshint undef: true, unused: true, node: true */
+/* globals PROVIDED_AUTH_DATA */
 import Ember from 'ember';
 
 export default Ember.Component.extend({

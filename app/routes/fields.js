@@ -1,3 +1,7 @@
+/* jshint undef: true, unused: true */
+/* globals PROVIDED_AUTH_DATA */
+/* globals PROVIDED_DATA_URL */
+
 import Ember from 'ember';
 
 export default Ember.Route.extend({
