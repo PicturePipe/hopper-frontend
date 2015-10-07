@@ -51,6 +51,12 @@ export default Ember.Route.extend({
             return self.store.find('form', 'fixture-0');
         }
         var app = self.container.lookup('application:main');
+        if (typeof(app.HOPPER_EXTRA_HEADERS) === 'undefined') {
+            app.HOPPER_EXTRA_HEADERS = PROVIDED_AUTH_DATA;
+        }
+        if(typeof(app.HOPPER_DATA_URL) === 'undefined') {
+            app.HOPPER_DATA_URL = PROVIDED_DATA_URL;
+        }
         return Ember.$.ajax({
             type: 'GET',
             contentType: 'application/json',

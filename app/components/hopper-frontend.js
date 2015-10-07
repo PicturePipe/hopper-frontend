@@ -98,6 +98,9 @@ export default Ember.Component.extend({
                         url: app.HOPPER_DATA_URL,
                         data: JSON.stringify(formData),
                         beforeSend: function (request) {
+                            if (typeof(app.HOPPER_EXTRA_HEADERS) === 'undefined') {
+                                app.HOPPER_EXTRA_HEADERS = PROVIDED_AUTH_DATA;
+                            }
                             for (var heading in app.HOPPER_EXTRA_HEADERS) {
                                 request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
                             }
