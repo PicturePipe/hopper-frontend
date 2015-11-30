@@ -51,7 +51,7 @@ export default Ember.Route.extend({
 
     model: function() {
         var self = this;
-        if (self.store.all('form').get('length')) {
+        if (self.store.peekAll('form').get('length')) {
             return self.store.find('form', 'fixture-0');
         }
         var app = self.container.lookup('application:main');

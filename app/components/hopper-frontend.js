@@ -53,7 +53,7 @@ export default Ember.Component.extend({
             this.set('isTitleBeingEdited', false);
         },
         addFormElement: function(field) {
-            var numOfFormElements = this.store.all('formElement').get('length');
+            var numOfFormElements = this.store.peekAll('formElement').get('length');
             var newElement = this.store.createRecord('formElement', {
                 label: '',
                 elementType: field,

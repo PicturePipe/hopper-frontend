@@ -22,7 +22,7 @@ targetObjectFake = {
     createRecord: function () {
       return {save: function() {}};
     },
-    all: findOrAllFake,
+    peekAll: findOrAllFake,
   }
 };
 
