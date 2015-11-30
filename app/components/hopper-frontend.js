@@ -1,3 +1,5 @@
+/* jshint undef: true, unused: true, node: true */
+/* globals PROVIDED_AUTH_DATA */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -51,7 +53,7 @@ export default Ember.Component.extend({
             this.set('isTitleBeingEdited', false);
         },
         addFormElement: function(field) {
-            var numOfFormElements = this.store.all('formElement').get('length');
+            var numOfFormElements = this.store.peekAll('formElement').get('length');
             var newElement = this.store.createRecord('formElement', {
                 label: '',
                 elementType: field,
@@ -98,6 +100,9 @@ export default Ember.Component.extend({
                         url: app.HOPPER_DATA_URL,
                         data: JSON.stringify(formData),
                         beforeSend: function (request) {
+                            if (typeof(app.HOPPER_EXTRA_HEADERS) === 'undefined') {
+                                app.HOPPER_EXTRA_HEADERS = PROVIDED_AUTH_DATA;
+                            }
                             for (var heading in app.HOPPER_EXTRA_HEADERS) {
                                 request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
                             }
