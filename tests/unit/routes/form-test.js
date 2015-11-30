@@ -23,7 +23,7 @@ test('route model', function (assert) {
       assert.equal(model, 'form');
       return {id: formId};
     },
-    all: function(model) {
+    peekAll: function(model) {
       assert.equal(model, 'form');
       return [{id: 'fixture-0'}];
     }
