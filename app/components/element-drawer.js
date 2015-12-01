@@ -15,6 +15,7 @@ export default Ember.Component.extend({
         {title: 'Number', field_name: 'integer'},
         {title: 'Email', field_name: 'mail'},
         {title: 'URL', field_name: 'url'},
+        {title: 'Country', field_name: 'country'},
         {title: 'Password', field_name: 'password'},
         {title: 'Hidden Field', field_name: 'hidden'},
     ],

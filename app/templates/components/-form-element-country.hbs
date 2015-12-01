@@ -1,0 +1,36 @@
+{{#if isEditing}}
+<div class="field edit" data-id={{ formElement.id }}>
+    <div class="row">
+        <h3>{{ formElement.getElementTypeDisplay }}</h3>
+    </div>
+    {{#if isLabelEmpty}}
+    <div class="row">
+        <strong>Please insert at least a label.</strong>
+    </div>
+    {{/if}}
+    <div class="row">
+        <label>Label:</label> <span>{{input value=formElement.label }}</span>
+    </div>
+    <div class="row">
+        <label>Description:</label> <span>{{input value=formElement.description }}</span>
+    </div>
+    <div class="row">
+        <label>Required:</label> <span>{{input type="checkbox" checked=formElement.required}}</span>
+    </div>
+    <div class="row">
+        <label>Immutable:</label> <span>{{input type="checkbox" checked=formElement.immutable}}</span>
+    </div>
+    <div class="row">
+        <label>Multiple:</label> <span>{{input type="checkbox" checked=formElement.multiple}}</span>
+    </div>
+    {{ partial "components/-form-element-save-row" }}
+</div>
+{{else}}
+<div class="field {{if formElement.immutable 'immutable'}}" data-id={{ formElement.id }}
+        {{action "togglIsEditing" on="doubleClick"}}>
+    <label>{{ formElement.label }}{{if formElement.required '*'}}:</label>
+    <span>
+        {{view "select" multiple=formElement.multiple  content=exampleCountries disabled=true}}
+    </span>
+</div>
+{{/if}}

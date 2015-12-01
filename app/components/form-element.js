@@ -35,6 +35,9 @@ export default Ember.Component.extend({
     return valuesAsList;
   }.property('formElement.values'),
 
+  exampleCountries: ['Germany', 'France', 'Netherlands', 'Austria', 'Schwitzerland',
+    'United Kingdom'],
+
   actions: {
     togglIsEditing: function() {
       if (this.get('formElement.label') === "") {
