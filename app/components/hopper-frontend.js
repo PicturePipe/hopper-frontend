@@ -1,5 +1,4 @@
 /* jshint undef: true, unused: true, node: true */
-/* globals PROVIDED_AUTH_DATA */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -97,16 +96,8 @@ export default Ember.Component.extend({
                         type: 'PUT',
                         contentType: 'application/json',
                         dataType: 'json',
-                        url: app.HOPPER_DATA_URL,
+                        url: app.getDataUrl(),
                         data: JSON.stringify(formData),
-                        beforeSend: function (request) {
-                            if (typeof(app.HOPPER_EXTRA_HEADERS) === 'undefined') {
-                                app.HOPPER_EXTRA_HEADERS = PROVIDED_AUTH_DATA;
-                            }
-                            for (var heading in app.HOPPER_EXTRA_HEADERS) {
-                                request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
-                            }
-                        }
                     }).done(function () {
                         Ember.$('#saveModal').foundation('reveal', 'open');
                     }).fail(function (error) {
