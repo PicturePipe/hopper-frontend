@@ -1,6 +1,4 @@
 /* jshint undef: true, unused: true */
-/* globals PROVIDED_AUTH_DATA */
-/* globals PROVIDED_DATA_URL */
 
 import Ember from 'ember';
 
@@ -55,22 +53,15 @@ export default Ember.Route.extend({
             return self.store.find('form', 'fixture-0');
         }
         var app = self.container.lookup('application:main');
-        if (typeof(app.HOPPER_EXTRA_HEADERS) === 'undefined') {
-            app.HOPPER_EXTRA_HEADERS = PROVIDED_AUTH_DATA;
-        }
-        if(typeof(app.HOPPER_DATA_URL) === 'undefined') {
-            app.HOPPER_DATA_URL = PROVIDED_DATA_URL;
+        if (typeof(app.form_id) === 'undefined') {
+          var queryStrings = app.getQueryStrings();
+          app.form_id = queryStrings['form_id'];
         }
         return Ember.$.ajax({
             type: 'GET',
             contentType: 'application/json',
             dataType: 'json',
-            url: app.HOPPER_DATA_URL,
-            beforeSend: function (request) {
-                for (var heading in app.HOPPER_EXTRA_HEADERS) {
-                    request.setRequestHeader(heading, app.HOPPER_EXTRA_HEADERS[heading]);
-                }
-            }
+            url: app.getDataUrl()
         }).done(function (data) {
             var formData = data.form;
             var form = self.store.createRecord('form', {
