@@ -35,7 +35,7 @@ var fakeController = function(route) {
   return obj;
 };
 
-var fakeObject = function () {
+var FakeObject = function () {
   return {
     _formElements: [],
     _values: {length: 0},
@@ -227,11 +227,11 @@ test('add and remove input', function(assert) {
 test('extractFormElementInfo', function(assert) {
   assert.expect(4);
   var component = this.subject();
-  var objectFake1 = new fakeObject();
+  var objectFake1 = new FakeObject();
   objectFake1.set('label', 'Test');
   objectFake1.set('name', 'test');
 
-  var objectFake2 = new fakeObject();
+  var objectFake2 = new FakeObject();
   objectFake2.set('label', 'Test2');
   objectFake2.set('name', 'test2');
 

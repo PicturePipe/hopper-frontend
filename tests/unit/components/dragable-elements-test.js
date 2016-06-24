@@ -4,7 +4,7 @@ import {
   test
 } from 'ember-qunit';
 
-var fakeObject = Ember.Object.extend({
+var FakeObject = Ember.Object.extend({
   formElements: [],
 
   removeObjects: function(objects) {
@@ -22,7 +22,7 @@ var fakeStore = function() {
     find: function(type, name) {
       if (typeof(this.objects[name]) === 'undefined') {
         return new Ember.RSVP.Promise(function(resolve, reject) {
-          var obj = new fakeObject();
+          var obj = new FakeObject();
           store.objects[name] = obj;
           resolve(obj);
         });
@@ -44,7 +44,7 @@ moduleForComponent('dragable-elements', {
 test('removeFormElements', function(assert) {
   assert.expect(2);
   var component = this.subject();
-  var obj = fakeObject.create();
+  var obj = FakeObject.create();
   var formElements = new Array('Foo', 'Bar');
   obj.set('formElements', formElements);
   assert.equal(obj.get('formElements').length, 2);
@@ -56,7 +56,7 @@ test('addToFormElements', function(assert) {
   assert.expect(2);
   var component = this.subject();
   component.store = fakeStore();
-  var obj = fakeObject.create();
+  var obj = FakeObject.create();
   var elements = new Array('Foo', 'Bar');
   obj.set('formElements', elements);
   assert.equal(obj.get('formElements').length, 2);
@@ -92,7 +92,7 @@ test('updateElement', function(assert) {
 
     },
   };
-  var obj = new fakeObject();
+  var obj = new FakeObject();
   obj.set('weight', 0);
   component.store.objects['title'] = obj;
   assert.equal(component.store.objects['title'].get('weight'), 0);
