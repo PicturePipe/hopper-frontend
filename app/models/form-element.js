@@ -16,6 +16,7 @@ var FormElement = DS.Model.extend(FormElementsMixin, {
     default: DS.attr('string'),
     checked: DS.attr('boolean'),
     multiple: DS.attr('boolean'),
+    multiple_useable: DS.attr('boolean'),
 
     elementTypeNames: {
         'fieldset': 'Field-set',
