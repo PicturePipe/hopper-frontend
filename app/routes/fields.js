@@ -41,7 +41,7 @@ export default Ember.Route.extend({
                 immutable: formElementInfo['immutable'] || false,
                 checked: formElementInfo['checked'] || false,
                 multiple: formElementInfo['multiple'] || false,
-                multiple_useable: formElementInfo['multiple_useable'] || false,
+                reusable: formElementInfo['reusable'] || false,
             });
             parent.get('formElements').pushObject(formElement);
             if(typeof(formElementInfo.elements) !== 'undefined') {
