@@ -26,7 +26,7 @@ export default Ember.Component.extend({
             'description': formElement.get('description'),
             'checked': formElement.get('checked'),
             'multiple': formElement.get('multiple'),
-            'multiple_useable': formElement.get('multiple_useable'),
+            'reusable': formElement.get('reusable'),
             'choices': choices.split('\n'),
             'elements': {}
         };
