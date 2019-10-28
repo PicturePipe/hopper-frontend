@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "bower": "1.8.2",
+    "bower": "1.8.8",
     "broccoli-asset-rev": "^2.0.2",
     "broccoli-static-compiler": "0.2.2",
     "codecov.io": "^0.1.2",
