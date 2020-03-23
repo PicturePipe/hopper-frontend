@@ -1,5 +1,7 @@
 # Hopper-frontend
 
+**Project is unmaintained and has been archived.**
+
 Hopper-frontend is a JavaScript frontend for the Hopper API. It allows
 your users to easily create there own formulars.
 
